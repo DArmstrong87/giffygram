@@ -49,6 +49,27 @@
       "recipientId": 2,
       "text": "test",
       "read": false
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "recipientId": 1,
+      "text": "Hi cuttie",
+      "read": true
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "recipientId": 1,
+      "text": "you amazing",
+      "read": true
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "recipientId": 1,
+      "text": "hey cuttiesssss",
+      "read": true
     }
   ],
   "follows": [
