@@ -11,6 +11,10 @@
     margin: 0 25%;
 }
 
+.new-post-container {
+    margin-top: 5em;
+}
+
 .newPost__input {
     width: 30rem;
     margin: 0.5rem 0;
@@ -46,6 +50,10 @@
 
 .newPost__plus {
     font-size: 6rem;
+}
+
+.post-feed-container {
+    margin-top: 2em;
 }
 
 .post {
