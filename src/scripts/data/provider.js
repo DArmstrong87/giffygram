@@ -99,7 +99,9 @@ export const setDisplayCreateUser = (boolean)=>{
     return applicationState.feed.displayCreateUser = boolean
 }
 export const setCurrentUser = (item)=>{
-    return applicationState.currentUser = item
+    applicationState.currentUser = item
+    console.log(applicationState.currentUser)
+    return
 }
 // POST FUNCTIONS
 

@@ -17,6 +17,12 @@
       "name": "Josh",
       "password": "1",
       "id": 3
+    },
+    {
+      "email": "josh1@josh.com",
+      "name": "Josh1",
+      "password": "123",
+      "id": 4
     }
   ],
   "posts": [
