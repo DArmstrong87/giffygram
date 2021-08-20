@@ -1,5 +1,15 @@
-import { getCurrentUser, getPosts, getUsers } from "../data/provider.js"
+import { applicationElement, deletePost, getCurrentUser, getPosts, getUsers } from "../data/provider.js"
 
+applicationElement.addEventListener("click",
+    click => {
+        const clicked = click.target.id
+        if (clicked.startsWith('deletePost--') === true) {
+            const [, postId] = clicked.split("--")
+            console.log('button clicked')
+            deletePost(postId)
+        }
+    }
+)
 
 const listPosts = (post) => {
     console.log(post)
@@ -22,7 +32,7 @@ const listPosts = (post) => {
         <img class="post__icon" src="./images/favorite-star-blank.svg" />`
 
     if (post.userId === currentUser) {
-        html += `<img class="post__icon" src="./images/block.svg" />`
+        html += `<img class="post__icon" id="deletePost--${post.id}" src="./images/block.svg" />`
     }
     html += `</div></div>`
     return html

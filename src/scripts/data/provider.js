@@ -1,5 +1,5 @@
 const API = "http://localhost:8088";
-const applicationElement = document.querySelector(".giffygram");
+export const applicationElement = document.querySelector(".giffygram");
 
 const applicationState = {
   users: [],
@@ -124,3 +124,14 @@ export const createNewPost = (object) => {
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
+
+
+// Delete Functions
+export const deletePost = (id) => {
+  return fetch(`${API}/posts/${id}`, { method: "DELETE" })
+    .then(
+      () => {
+        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+      }
+    )
+}

@@ -29,12 +29,12 @@
       "timestamp": 1497580619498
     },
     {
-      "id": 2,
       "userId": 2,
-      "title": "Dummy Post",
-      "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif&ct=g",
-      "description": "cat",
-      "timestamp": 1497580619498
+      "title": "sdffhgsdfgsdfg",
+      "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif",
+      "description": "sdfrhgeswrthgstre",
+      "timestamp": 1629493389638,
+      "id": 2
     }
   ],
   "likes": [
