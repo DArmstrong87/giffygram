@@ -32,6 +32,7 @@ export const fetchPosts = () => {
         .then(
             (post) => {
                 applicationState.posts = post
+                console.log(applicationState)
             }
         )
 }
