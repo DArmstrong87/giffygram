@@ -1,4 +1,4 @@
-import { getUsers } from "../data/provider.js"
+import { getUsers, setDisplayCreateUser } from "../data/provider.js"
 
 
 document.addEventListener("click", clickEvent => {
@@ -19,6 +19,9 @@ document.addEventListener("click", clickEvent => {
             localStorage.setItem("gg_user", foundUser.id)
             document.querySelector(".giffygram").dispatchEvent(new CustomEvent("stateChanged"))
         }
+    }else if(clickEvent.target.id === "createUserButton"){
+        setDisplayCreateUser(true)
+        document.querySelector(".giffygram").dispatchEvent(new CustomEvent("stateChanged"))
     }
 })
 
@@ -36,6 +39,7 @@ export const LoginForm = () => {
                 </fieldset>
             </form>
             <button id="loginButton">Login</button>
+            <button id="createUserButton">Create User</button>
         </div>
     `
 }

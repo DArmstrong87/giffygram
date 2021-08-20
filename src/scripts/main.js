@@ -1,10 +1,12 @@
 import { GiffyGram } from "./GiffyGram.js"
 import { LoginForm } from "./auth/Login.js"
-import { fetchFollows, fetchLikes, fetchMessages, fetchPosts, fetchUsers } from "./data/provider.js"
+import { fetchFollows, fetchLikes, fetchMessages, fetchPosts, fetchUsers, getLoginState } from "./data/provider.js"
+import { RegisterUser } from "./auth/Register.js"
 const applicationElement = document.querySelector(".giffygram")
 
 export const renderApp = () => {
     const user = parseInt(localStorage.getItem("gg_user"))
+    const createUser = getLoginState()
     //fetch calls here, once fetch are complete then check if user
     fetchUsers()
     .then(fetchFollows)
@@ -15,7 +17,11 @@ export const renderApp = () => {
         if (user) {
             applicationElement.innerHTML = GiffyGram()
         } else {
-            applicationElement.innerHTML = LoginForm()
+            if (createUser){
+                applicationElement.innerHTML = RegisterUser()
+            }else{
+                applicationElement.innerHTML = LoginForm()
+            }
         }
 
     })
