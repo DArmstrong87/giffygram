@@ -1,5 +1,5 @@
 import { getCurrentUser, getMessages, getMessages, getUsers } from "../data/provider";
-
+const applicationElement = document.querySelector(".giffygram")
 //div class="messages" 
     //div class="messageList"
         //div class="message" id="message--messageId"
@@ -22,7 +22,8 @@ export const DirectMessagesHtml = ()=>{
     const inbox = unReadMessages.concat(readMessages)
     return `
         <div class="messages">
-            <h1>${currentUser.name}'s Inbox
+            <h1>${currentUser.name}'s Inbox</h1>
+            <button id="closeMessage">Close Messages</button>
             <div class="messageList>
                 ${inbox.map((message)=>{
                     if (message.read){
@@ -50,5 +51,10 @@ export const DirectMessagesHtml = ()=>{
 }
 
 
-
+applicationElement.addEventListener("click",
+    (event)=>{
+        if (event.target.id === "closeMessage"){
+            
+        }
+    })
 
