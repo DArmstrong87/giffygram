@@ -1,5 +1,5 @@
-import { LoginForm } from "../auth/Login.js";
-import { getCurrentUser, setCurrentUser } from "../data/provider.js";
+import { setCurrentUser } from "../data/provider.js";
+
 const applicationElement = document.querySelector(".giffygram");
 
 document.addEventListener("click", (click) => {

@@ -17,6 +17,12 @@
       "name": "Josh",
       "password": "1",
       "id": 3
+    },
+    {
+      "email": "travis@travis.com",
+      "name": "travis",
+      "password": "travis",
+      "id": 4
     }
   ],
   "posts": [

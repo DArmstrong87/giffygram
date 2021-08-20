@@ -3,6 +3,8 @@ import { newPost, newPostForm } from "./feed/PostList.js";
 
 export const GiffyGram = () => {
   return `<div>${NavBar()}</div>
+            <div id="newMessageForm">
+            </div>        
             <div>
             ${newPost()}
             PostFeed</div>

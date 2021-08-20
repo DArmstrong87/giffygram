@@ -43,7 +43,7 @@ export const fetchLikes = () => {
 };
 
 export const fetchMessages = () => {
-  return fetch(`${API}/posts`)
+  return fetch(`${API}/messages`)
     .then((response) => response.json())
     .then((message) => {
       applicationState.messages = message;
@@ -119,6 +119,20 @@ export const createNewPost = (object) => {
     body: JSON.stringify(object),
   };
   return fetch(`${API}/posts`, fetchOptions)
+    .then((response) => response.json())
+    .then(() => {
+      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+    });
+};
+export const createDirectMessage = (object) => {
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(object),
+  };
+  return fetch(`${API}/messages`, fetchOptions)
     .then((response) => response.json())
     .then(() => {
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
