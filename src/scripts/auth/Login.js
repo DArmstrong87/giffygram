@@ -12,7 +12,6 @@ document.addEventListener("click", clickEvent => {
         for (const user of userState) {
             if (user.email === email && user.password === password) {
                 foundUser = user
-                setCurrentUser(foundUser)
             }
         }
 

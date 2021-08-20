@@ -1,4 +1,4 @@
-import { createNewPost, getCurrentUser } from "../data/provider.js"
+import { createNewPost, getCurrentUser, getPosts } from "../data/provider.js"
 
 document.addEventListener("click",
     click => {
@@ -25,20 +25,24 @@ document.addEventListener("click",
     click => {
         if (click.target.name === 'upload-post') {
             const currentUser = getCurrentUser()
-            const currentUserId = currentUser.id
             const userTitle = document.querySelector("input[name='post-title']").value
             const userUrl = document.querySelector("input[name='post-image-url']").value
             const userDescription = document.querySelector("textarea[name='post-description']").value
 
             const dataToAPI = {
-                userId: currentUserId,
+                userId: currentUser,
                 title: userTitle,
                 imageUrl: userUrl,
                 description: userDescription,
                 timestamp: Date.now()
             }
-
-            createNewPost(dataToAPI)
+            if (dataToAPI.title === '' || dataToAPI.imageUrl === '' || dataToAPI.description === ''){
+                window.alert('Please fill in all fields')
+            } else {
+                createNewPost(dataToAPI)
+            }
+            const posts = getPosts()
+            console.log(posts)
         }
     }
 )
