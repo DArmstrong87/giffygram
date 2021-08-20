@@ -1,7 +1,11 @@
+import { newPost, newPostForm } from "./feed/PostList.js"
+
 export const GiffyGram = () => {
 
     
     return `<div>NavBar</div>
-            <div>PostFeed</div>
+            <div>
+            ${newPost()}
+            PostFeed</div>
             <div>Footer</div>`
 }
