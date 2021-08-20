@@ -29,12 +29,36 @@
       "timestamp": 1497580619498
     },
     {
+      "id": 2,
       "userId": 2,
-      "title": "sdffhgsdfgsdfg",
+      "title": "Cat Sith",
       "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif",
-      "description": "sdfrhgeswrthgstre",
-      "timestamp": 1629493389638,
-      "id": 2
+      "description": "Cat Sith defends himself against Jedi Doggos",
+      "timestamp": 1497580619498
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "title": "Cat Sith",
+      "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif",
+      "description": "Cat Sith defends himself against Jedi Doggos",
+      "timestamp": 1497580619498
+    },
+    {
+      "userId": 2,
+      "title": "esaresar",
+      "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif",
+      "description": "erwerg",
+      "timestamp": 1629496601043,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "title": "sadf",
+      "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif",
+      "description": "asdfasdf",
+      "timestamp": 1629496609779,
+      "id": 5
     }
   ],
   "likes": [
