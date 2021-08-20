@@ -62,14 +62,14 @@
       "userId": 2,
       "recipientId": 1,
       "text": "you amazing",
-      "read": true
+      "read": false
     },
     {
       "id": 4,
       "userId": 2,
       "recipientId": 1,
       "text": "hey cuttiesssss",
-      "read": true
+      "read": false
     }
   ],
   "follows": [

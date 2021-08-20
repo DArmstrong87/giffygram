@@ -1,5 +1,6 @@
 import { LoginForm } from "../auth/Login.js";
 import { getCurrentUser, setCurrentUser, setDisplayMessages } from "../data/provider.js";
+import { InboxNumbers } from "../friends/DirectMessage.js";
 const applicationElement = document.querySelector(".giffygram");
 
 document.addEventListener("click", (click) => {
@@ -36,7 +37,7 @@ export const NavBar = () => {
             src="/images/fountain-pen.svg"
             alt="Direct message"
           />
-          <div id="notification__count"class="notification__count">0</div>
+          <div id="notification__count"class="notification__count">${InboxNumbers()}</div>
         </div>
         <div class="navigation__item navigation__logout">
           <button id="logout" class="fakeLink">Logout</button>

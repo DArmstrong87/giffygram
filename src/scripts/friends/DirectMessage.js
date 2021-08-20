@@ -1,11 +1,22 @@
-import { getCurrentUser, getMessages, getUsers, setDisplayMessages } from "../data/provider.js";
+import { getCurrentUser, getMessages, getUsers, setDisplayMessages, UpdateMessageRead } from "../data/provider.js";
 const applicationElement = document.querySelector(".giffygram")
 //div class="messages" 
     //div class="messageList"
         //div class="message" id="message--messageId"
             //div class="message__author" > from: Name
             //div class="message__text"> message contenet
-
+export const InboxNumbers = ()=>{
+    const messages = getMessages()
+    const users = getUsers()
+    const currentUser = users.find((user)=> user.id === getCurrentUser())
+    const filteredMessages = messages.filter((message)=>{
+        return message.recipientId === currentUser.id
+    })
+    const unReadMessages = filteredMessages.filter((message)=>{
+        return message.read === false
+    })
+    return unReadMessages.length
+}
 export const DirectMessagesHtml = ()=>{
     const messages = getMessages()
     const users = getUsers()
@@ -33,8 +44,8 @@ export const DirectMessagesHtml = ()=>{
                                     }).name}
                                     </div>
                                     <div class="message__text">${message.text}</div>
-                                    <label id="readStatus"for="unread">Mark as Unread</label>
-                                    <input type="checkbox" name="unread"/>
+                                    <label for="unread">Mark as Unread</label>
+                                    <input id="readStatus--${message.id}"type="checkbox" name="unread"/>
                                 </div>`
                     }
                     else if (message.read === false){
@@ -43,9 +54,9 @@ export const DirectMessagesHtml = ()=>{
                                         return user.id === message.userId
                                     }).name}
                                     </div>
-                                    <label for="read">Mark as Read</label>
-                                    <input id="readStatus"type="checkbox" name="read"/>
                                     <div class="message__text">${message.text}</div>
+                                    <label for="read">Mark as Read</label>
+                                    <input id="readStatus--${message.id}"type="checkbox" name="read"/>
                                 </div>`
                     }}).join("")}
 
@@ -65,5 +76,15 @@ applicationElement.addEventListener("click",
 
 applicationElement.addEventListener("change",
     (event)=>{
-        if (event.target.change)
+        if (event.target.id.startsWith("readStatus")){
+            const [,targetId] = event.target.id.split("--")
+            let readStatus = null
+            if(event.target.name === "read"){
+                readStatus = true
+            }else if(event.target.name ==="unread"){
+                readStatus = false
+            }
+            const toggleRead = {'read': readStatus}
+            UpdateMessageRead(toggleRead, parseInt(targetId))
+        }
     })

@@ -130,7 +130,7 @@ export const createNewPost = (object) => {
 //PATCH
 export const UpdateMessageRead = (object, id)=>{
     const fetchOptions ={
-        method: "Patch",
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json"
         },
