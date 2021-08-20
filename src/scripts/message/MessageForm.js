@@ -14,13 +14,18 @@ document.addEventListener("click", (click) => {
 });
 
 export const MessageForm = () => {
+  let users = getUsers();
   let html = `
     <div class="directMessage" id="directMessageForm">
     <h3>Direct Message</h3>
     <div>Recipient:
     <select name="directMessage__userSelect" class="message__input">
     <option>Choose a recipient...</option>
-    <option value="messageRecipient--1">1</option>,<option value="messageRecipient--2">2</option>,<option value="messageRecipient--3">3</option>,<option value="messageRecipient--4">4</option>,<option value="messageRecipient--5">5</option>,<option value="messageRecipient--6">6</option>
+    ${users
+      .map((user) => {
+        return `<option id="users--${user.id}" value="recipient--${user.id}">${user.name}</option>`;
+      })
+      .join("")}
     </select>
     </div>
     <div>
