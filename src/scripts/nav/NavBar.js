@@ -1,8 +1,16 @@
+import { LoginForm } from "../auth/Login.js";
+import { getCurrentUser } from "../data/provider.js";
 const applicationElement = document.querySelector(".giffygram");
 
 document.addEventListener("click", (click) => {
   if (click.target.id === "logo") {
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
+document.addEventListener("click", (click) => {
+  if (click.target.id === "logout") {
+    const currentUser = getCurrentUser();
+    LoginForm();
   }
 });
 
