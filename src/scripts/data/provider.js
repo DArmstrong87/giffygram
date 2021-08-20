@@ -66,16 +66,6 @@ export const fetchFollows = () => {
         )
 }
 
-export const fetchFeed = () => {
-    return fetch(`${API}/feed`)
-        .then(response => response.json())
-        .then(
-            (feed) => {
-                applicationState.feed = feed
-            }
-        )
-}
-
 // Getters
 export const getUsers = () => {
     return applicationState.users.map(user => ({ ...user }))
