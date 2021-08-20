@@ -25,12 +25,13 @@ document.addEventListener("click",
     click => {
         if (click.target.name === 'upload-post') {
             const currentUser = getCurrentUser()
+            const currentUserId = currentUser.id
             const userTitle = document.querySelector("input[name='post-title']").value
             const userUrl = document.querySelector("input[name='post-image-url']").value
             const userDescription = document.querySelector("textarea[name='post-description']").value
 
             const dataToAPI = {
-                userId: currentUser,
+                userId: currentUserId,
                 title: userTitle,
                 imageUrl: userUrl,
                 description: userDescription,

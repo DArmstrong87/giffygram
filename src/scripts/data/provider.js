@@ -85,7 +85,7 @@ export const getFollows = () => {
     return applicationState.follows.map(follow => ({ ...follow }))
 }
 export const getCurrentUser = () => {
-    return applicationState.feed.chosenUser
+    return applicationState.currentUser
 }
 export const getFeed = () => {
     return applicationState.feed.map(feed => ({ ...feed }))
