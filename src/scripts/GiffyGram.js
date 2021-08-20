@@ -6,6 +6,6 @@ export const GiffyGram = () => {
   return `<div>${NavBar()}</div>
             <div class="new-post-container">
             ${newPost()}</div>
-            <div class="post-feed-container">${postFeed()}</div>
+            <div class="giffygram__feed">${postFeed()}</div>
             <div>Footer</div>`;
 };

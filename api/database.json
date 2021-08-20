@@ -24,6 +24,14 @@
       "id": 1,
       "userId": 1,
       "title": "Dummy Post",
+      "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif",
+      "description": "cat",
+      "timestamp": 1497580619498
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "title": "Dummy Post",
       "imageUrl": "https://giphy.com/clips/bestfriends-cat-cats-kitty-IsDjNQPc4weWPEwhWm",
       "description": "cat",
       "timestamp": 1497580619498
