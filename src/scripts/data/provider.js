@@ -11,7 +11,8 @@ const applicationState = {
     feed: {
         chosenUser: null,
         displayFavorites: false,
-        displayMessages: false
+        displayMessages: false,
+        displayCreateUser: false
     }
 }
 
@@ -88,4 +89,29 @@ export const getCurrentUser = () => {
 }
 export const getFeed = () => {
     return applicationState.feed.map(feed => ({ ...feed }))
+}
+export const getLoginState = () =>{
+    return applicationState.feed.displayCreateUser
+}
+
+//SETTERS
+export const setDisplayCreateUser = (boolean)=>{
+    return applicationState.feed.displayCreateUser = boolean
+}
+
+// POST FUNCTIONS
+
+export const postCreatedUser = ( object)=>{
+    const fetchOptions ={
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(object)
+    }
+    return fetch(`${API}/users`, fetchOptions)
+        .then(response => response.json())
+        .then(() =>{
+            applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+        })
 }

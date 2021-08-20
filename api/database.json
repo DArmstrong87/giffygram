@@ -11,6 +11,12 @@
       "name": "Bob",
       "email": "bob@bob.com",
       "password": "bob"
+    },
+    {
+      "email": "josh@josh.com",
+      "name": "Josh",
+      "password": "1",
+      "id": 3
     }
   ],
   "posts": [
