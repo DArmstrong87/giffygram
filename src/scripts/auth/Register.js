@@ -18,6 +18,7 @@ export const RegisterUser = () =>{
             </fieldset>
         </form>
         <button id="createUser">Create</button>
+        <button id="cancelCreateUser">Cancel</button>
     </div>
 `
 }
@@ -39,6 +40,9 @@ applicationElement.addEventListener("click",(event)=>{
                 setDisplayCreateUser(false)
                 postCreatedUser(createdUser)
             }
+        }else if (event.target.id ==="cancelCreateUser"){
+            setDisplayCreateUser(false)
+            applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
         }
     })
     
