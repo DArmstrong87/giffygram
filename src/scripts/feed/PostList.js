@@ -10,6 +10,30 @@ document.addEventListener("click",
         }
     }
 )
+document.addEventListener("click",
+    click => {
+        if (click.target.name === 'cancel-new-post') {
+            const container = document.getElementById('newPostContainer')
+            container.innerHTML = `
+            <div class="miniMode" id="miniMode">
+            Have a gif to post?
+            </div>
+            `
+        }
+    }
+)
+document.addEventListener("click",
+    click => {
+        if (click.target.name === 'upload-post') {
+            const container = document.getElementById('newPostContainer')
+            container.innerHTML = `
+            <div class="miniMode" id="miniMode">
+            Have a gif to post?
+            </div>
+            `
+        }
+    }
+)
 
 export const newPost = () => {
     return `<section id="newPostContainer">
