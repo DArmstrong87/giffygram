@@ -98,7 +98,9 @@ export const getLoginState = () =>{
 export const setDisplayCreateUser = (boolean)=>{
     return applicationState.feed.displayCreateUser = boolean
 }
-
+export const setCurrentUser = (item)=>{
+    return applicationState.currentUser = item
+}
 // POST FUNCTIONS
 
 export const postCreatedUser = ( object)=>{
