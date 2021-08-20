@@ -85,7 +85,7 @@ export const getFollows = () => {
     return applicationState.follows.map(follow => ({ ...follow }))
 }
 export const getCurrentUser = () => {
-    return applicationState.currentUser.map(user => ({ ...user }))
+    return applicationState.feed.chosenUser
 }
 export const getFeed = () => {
     return applicationState.feed.map(feed => ({ ...feed }))
@@ -110,6 +110,20 @@ export const postCreatedUser = ( object)=>{
         body: JSON.stringify(object)
     }
     return fetch(`${API}/users`, fetchOptions)
+        .then(response => response.json())
+        .then(() =>{
+            applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+export const createNewPost = ( object)=>{
+    const fetchOptions ={
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(object)
+    }
+    return fetch(`${API}/posts`, fetchOptions)
         .then(response => response.json())
         .then(() =>{
             applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
