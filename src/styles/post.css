@@ -80,3 +80,8 @@
     font-size: 2em;
     margin: 1em 0 0.5em 0;
 }
+
+.post__icon {
+    height: 1.5em;
+    margin: 0em 2em 0em 2em;
+}
