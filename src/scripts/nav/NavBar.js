@@ -1,9 +1,22 @@
-import { setCurrentUser } from "../data/provider.js";
-
+import {
+  setCurrentUser,
+  setDisplayMessageForm,
+  setDisplayMessages,
+} from "../data/provider.js";
+import { MessageForm } from "../message/MessageForm.js";
 const applicationElement = document.querySelector(".giffygram");
 
 document.addEventListener("click", (click) => {
+  if (click.target.id === "directMessageIcon") {
+    setDisplayMessageForm(true);
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
+
+document.addEventListener("click", (click) => {
   if (click.target.id === "logo") {
+    setDisplayMessageForm(false);
+    setDisplayMessages(false);
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });

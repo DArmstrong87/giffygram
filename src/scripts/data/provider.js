@@ -13,6 +13,7 @@ const applicationState = {
     displayFavorites: false,
     displayMessages: false,
     displayCreateUser: false,
+    displayMessageForm: false,
   },
 };
 
@@ -83,6 +84,9 @@ export const getFeed = () => {
 export const getLoginState = () => {
   return applicationState.feed.displayCreateUser;
 };
+export const getDisplayMessageForm = () => {
+  return applicationState.feed.displayMessageForm;
+};
 
 //SETTERS
 export const setDisplayCreateUser = (boolean) => {
@@ -93,6 +97,9 @@ export const setDisplayMessages = (boolean) => {
 };
 export const setCurrentUser = (item) => {
   return (applicationState.currentUser = item);
+};
+export const setDisplayMessageForm = (boolean) => {
+  return (applicationState.feed.displayMessageForm = boolean);
 };
 // POST FUNCTIONS
 
