@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "PermafrostBois",
+      "email": "permafrost@bois.com",
+      "password": "permafrost"
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "email": "bob@bob.com",
+      "password": "bob"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Dummy Post",
+      "imageUrl": "https://giphy.com/clips/bestfriends-cat-cats-kitty-IsDjNQPc4weWPEwhWm",
+      "description": "cat",
+      "timestamp": 1497580619498
+    }
+  ],
+  "likes": [
+    {
+      "id": 1,
+      "userId": 1,
+      "postId": 1
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "userId": 1,
+      "recipientId": 2,
+      "text": "test",
+      "read": false
+    }
+  ],
+  "follows": [
+    {
+      "id": 1,
+      "userId": 1,
+      "followingId": 2
+    }
+  ]
+}
