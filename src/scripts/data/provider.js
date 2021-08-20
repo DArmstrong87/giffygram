@@ -91,7 +91,9 @@ export const setDisplayCreateUser = (boolean) => {
 export const setDisplayMessages = (boolean) => {
   return (applicationState.feed.displayMessages = boolean);
 };
-
+export const setCurrentUser = (item) => {
+  return (applicationState.currentUser = item);
+};
 // POST FUNCTIONS
 
 export const postCreatedUser = (object) => {

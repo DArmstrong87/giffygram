@@ -1,5 +1,5 @@
 import { LoginForm } from "../auth/Login.js";
-import { getCurrentUser } from "../data/provider.js";
+import { getCurrentUser, setCurrentUser } from "../data/provider.js";
 const applicationElement = document.querySelector(".giffygram");
 
 document.addEventListener("click", (click) => {
@@ -9,8 +9,10 @@ document.addEventListener("click", (click) => {
 });
 document.addEventListener("click", (click) => {
   if (click.target.id === "logout") {
-    const currentUser = getCurrentUser();
-    LoginForm();
+    let user = {};
+    setCurrentUser(user);
+    localStorage.clear();
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
 
