@@ -1,7 +1,7 @@
-export const GiffyGram = () => {
+import { NavBar } from "./nav/NavBar.js";
 
-    
-    return `<div>NavBar</div>
+export const GiffyGram = () => {
+  return `<div>${NavBar()}</div>
             <div>PostFeed</div>
-            <div>Footer</div>`
-}
+            <div>Footer</div>`;
+};
