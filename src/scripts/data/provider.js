@@ -43,7 +43,7 @@ export const fetchLikes = () => {
 };
 
 export const fetchMessages = () => {
-  return fetch(`${API}/messages`)
+  return fetch(`${API}/posts`)
     .then((response) => response.json())
     .then((message) => {
       applicationState.messages = message;
@@ -83,9 +83,7 @@ export const getFeed = () => {
 export const getLoginState = () => {
   return applicationState.feed.displayCreateUser;
 };
-export const getMessageState = () => {
-    return applicationState.feed.displayMessages;
-}
+
 //SETTERS
 export const setDisplayCreateUser = (boolean) => {
   return (applicationState.feed.displayCreateUser = boolean);
@@ -126,22 +124,3 @@ export const createNewPost = (object) => {
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
-
-//PATCH
-export const UpdateMessageRead = (object, id)=>{
-    const fetchOptions ={
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(object)
-    }
-    return fetch(`${API}/messages/${id}`, fetchOptions)
-    .then((response) => response.json())
-    .then(()=>{
-        applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
-    })
-
-    
-    
-}
