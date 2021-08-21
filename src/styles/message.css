@@ -51,9 +51,3 @@
     font-weight: bold;
     margin-bottom: 1rem;
 }
-.read {
-    background-color: rgb(110, 182, 110);
-}
-.unread {
-    background-color: goldenrod;
-}
