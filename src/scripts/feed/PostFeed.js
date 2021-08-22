@@ -1,5 +1,6 @@
 import { createLike, deleteLike, deletePost, getCurrentUser, getLikes, getPosts, getUsers } from "../data/provider.js"
 
+// Delete Post
 document.addEventListener("click",
     click => {
         const clicked = click.target.id
@@ -9,6 +10,7 @@ document.addEventListener("click",
         }
     }
 )
+// Delete Like
 document.addEventListener("click",
     click => {
         const clicked = click.target.id
@@ -18,6 +20,8 @@ document.addEventListener("click",
         }
     }
 )
+
+// Create Like
 document.addEventListener("click",
     click => {
         const clicked = click.target.id
@@ -33,12 +37,23 @@ document.addEventListener("click",
     }
 )
 
+export const postFeed = () => {
+    const posts = getPosts()
+    let html = ''
+
+    html += `${posts.map(post => {
+        return listPosts(post)
+    }).join("")}`
+
+    return html
+}
+
 const listPosts = (post) => {
     const users = getUsers()
     const currentUser = getCurrentUser()
     const likes = getLikes()
     const newDate = new Date()
-    const date = [newDate.getMonth(post.timestamp)+1, newDate.getDate(post.timestamp), newDate.getFullYear(post.timestamp)].join("/")
+    const date = [newDate.getMonth(post.timestamp) + 1, newDate.getDate(post.timestamp), newDate.getFullYear(post.timestamp)].join("/")
     const foundUser = users.find(
         user => {
             return user.id === post.userId
@@ -52,12 +67,12 @@ const listPosts = (post) => {
         `<div class="post">
             <h3>${post.title}</h3>
             <img class="post__image" src=${post.imageUrl}>
-            </div>
-            <div class="post__tagline">${post.description}</div>
-            <div class="post__tagline">
+        </div>
+        <div class="post__tagline">${post.description}</div>
+        <div class="post__tagline">
             Posted by <b><a href="">${foundUser.name}</a></b> on ${date}
-            </div>
-            <div class="post__actions">`
+        </div>
+        <div class="post__actions">`
 
     if (foundLike) {
         html += `<img class="post__icon" id="deleteLike--${foundLike.id}" src="./images/favorite-star-yellow.svg" />`
@@ -69,17 +84,5 @@ const listPosts = (post) => {
         html += `<img class="post__icon" id="deletePost--${post.id}" src="./images/block.svg" /></div>`
     }
     html += `</div>`
-    return html
-}
-
-export const postFeed = () => {
-    const posts = getPosts()
-    let html = ''
-
-    html += `${posts.map(post => {
-        return listPosts(post)
-    }).join("")}`
-
-
     return html
 }
