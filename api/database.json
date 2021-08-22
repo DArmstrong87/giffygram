@@ -23,6 +23,12 @@
       "name": "Josh1",
       "password": "123",
       "id": 4
+    },
+    {
+      "email": "danny@danny.com",
+      "name": "Danny Bwai",
+      "password": "danny",
+      "id": 5
     }
   ],
   "posts": [
@@ -57,6 +63,22 @@
       "description": " ",
       "timestamp": 1629596558907,
       "id": 5
+    },
+    {
+      "userId": 5,
+      "title": "When you defeat those errors",
+      "imageUrl": "https://media1.giphy.com/media/YtOzpQAehGOdi/giphy.gif?cid=ecf05e47hldp86p3c21pdl3kzt4r8mozabpeeg9y51xkuhse&rid=giphy.gif&ct=g",
+      "description": "I still can't make horizontal bubble rings.",
+      "timestamp": 1629597929781,
+      "id": 6
+    },
+    {
+      "userId": 5,
+      "title": "Best Preds Celebration",
+      "imageUrl": "https://media0.giphy.com/media/xT4uQe4Qq93zR3LsWI/giphy.gif?cid=ecf05e47b3zz7nosnpaz5qpholgbhl3z20h0rlcvooqsphdm&rid=giphy.gif&ct=g",
+      "description": "Mike fisher scores in triple OT!",
+      "timestamp": 1629598105984,
+      "id": 7
     }
   ],
   "likes": [
@@ -69,6 +91,26 @@
       "userId": 2,
       "postId": 5,
       "id": 2
+    },
+    {
+      "userId": 2,
+      "postId": 1,
+      "id": 3
+    },
+    {
+      "userId": 5,
+      "postId": 6,
+      "id": 4
+    },
+    {
+      "userId": 5,
+      "postId": 1,
+      "id": 5
+    },
+    {
+      "userId": 5,
+      "postId": 5,
+      "id": 6
     }
   ],
   "messages": [

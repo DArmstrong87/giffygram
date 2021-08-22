@@ -37,7 +37,8 @@ const listPosts = (post) => {
     const users = getUsers()
     const currentUser = getCurrentUser()
     const likes = getLikes()
-    const date = new Date(post.timestamp)
+    const newDate = new Date()
+    const date = [newDate.getMonth(post.timestamp)+1, newDate.getDate(post.timestamp), newDate.getFullYear(post.timestamp)].join("/")
     const foundUser = users.find(
         user => {
             return user.id === post.userId
@@ -53,7 +54,7 @@ const listPosts = (post) => {
             <img class="post__image" src=${post.imageUrl}>
             </div>
             <div class="post__tagline">${post.description}</div>
-            <div class="post">
+            <div class="post__tagline">
             Posted by <b><a href="">${foundUser.name}</a></b> on ${date}
             </div>
             <div class="post__actions">`
