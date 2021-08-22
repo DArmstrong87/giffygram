@@ -17,6 +17,12 @@
       "name": "Josh",
       "password": "1",
       "id": 3
+    },
+    {
+      "email": "josh1@josh.com",
+      "name": "Josh1",
+      "password": "123",
+      "id": 4
     }
   ],
   "posts": [
@@ -29,35 +35,27 @@
       "timestamp": 1497580619498
     },
     {
-      "id": 2,
-      "userId": 2,
-      "title": "Cat Sith",
-      "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif",
-      "description": "Cat Sith defends himself against Jedi Doggos",
-      "timestamp": 1497580619498
-    },
-    {
       "id": 3,
       "userId": 1,
-      "title": "Cat Sith",
-      "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif",
-      "description": "Cat Sith defends himself against Jedi Doggos",
+      "title": "You get an error!",
+      "imageUrl": "https://media3.giphy.com/media/y8Mz1yj13s3kI/200.webp?cid=ecf05e47lml3k8wreyd9mtqr91fjrsxq68bep8n5ix3mubc4&rid=200.webp&ct=g",
+      "description": "And you get an error... EVERYONE GETS AN ERROR!",
       "timestamp": 1497580619498
     },
     {
       "userId": 2,
-      "title": "esaresar",
-      "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif",
-      "description": "erwerg",
-      "timestamp": 1629496601043,
+      "title": "Go On, Git",
+      "imageUrl": "https://i.giphy.com/media/j5Qgf8rf2VYnoWH3SY/200w.webp",
+      "description": "Time to git!",
+      "timestamp": 1629596399972,
       "id": 4
     },
     {
       "userId": 2,
-      "title": "sadf",
-      "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif",
-      "description": "asdfasdf",
-      "timestamp": 1629496609779,
+      "title": "When your code finally works correctly",
+      "imageUrl": "https://media3.giphy.com/media/S9i8jJxTvAKVHVMvvW/giphy.gif?cid=ecf05e47hyiwwydre08y12vr8llwam5ddjwy2ke2abywkkm5&rid=giphy.gif&ct=g",
+      "description": " ",
+      "timestamp": 1629596558907,
       "id": 5
     }
   ],
@@ -66,6 +64,11 @@
       "id": 1,
       "userId": 1,
       "postId": 1
+    },
+    {
+      "userId": 2,
+      "postId": 5,
+      "id": 2
     }
   ],
   "messages": [
@@ -74,6 +77,27 @@
       "userId": 1,
       "recipientId": 2,
       "text": "test",
+      "read": false
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "recipientId": 1,
+      "text": "Hi cuttie",
+      "read": true
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "recipientId": 1,
+      "text": "you amazing",
+      "read": false
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "recipientId": 1,
+      "text": "hey cuttiesssss",
       "read": false
     }
   ],
