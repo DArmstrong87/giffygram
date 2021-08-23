@@ -88,6 +88,9 @@ export const getDisplayMessageForm = () => {
   return applicationState.feed.displayMessageForm;
 };
 
+export const getMessageState = () => {
+  return applicationState.feed.displayMessages;
+};
 //SETTERS
 export const setDisplayCreateUser = (boolean) => {
   return (applicationState.feed.displayCreateUser = boolean);
@@ -131,7 +134,8 @@ export const createNewPost = (object) => {
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
-export const createDirectMessage = (object) => {
+// export const createDirectMessage = (object) => {
+export const createLike = (object) => {
   const fetchOptions = {
     method: "POST",
     headers: {
@@ -139,7 +143,36 @@ export const createDirectMessage = (object) => {
     },
     body: JSON.stringify(object),
   };
-  return fetch(`${API}/messages`, fetchOptions)
+
+  return fetch(`${API}/likes`, fetchOptions)
+    .then((response) => response.json())
+    .then(() => {
+      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+    });
+};
+
+// Delete Functions
+export const deletePost = (id) => {
+  return fetch(`${API}/posts/${id}`, { method: "DELETE" }).then(() => {
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  });
+};
+export const deleteLike = (id) => {
+  return fetch(`${API}/likes/${id}`, { method: "DELETE" }).then(() => {
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  });
+};
+
+//PATCH
+export const UpdateMessageRead = (object, id) => {
+  const fetchOptions = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(object),
+  };
+  return fetch(`${API}/messages/${id}`, fetchOptions)
     .then((response) => response.json())
     .then(() => {
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));

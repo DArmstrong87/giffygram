@@ -64,8 +64,10 @@ export const newPostForm = () => {
         <input class="newPost__input" type="text" name="post-title" placeholder="Title"></input><br>
         <input class="newPost__input" type="text" name="post-image-url" placeholder="Image URL"></input>
         <textarea class="newPost__description" name="post-description" placeholder="Tell us a story..."></textarea>
+        <div class="newPost__upload">
         <button name="upload-post">Upload Post</button>
         <button name="cancel-new-post">Cancel</button>
+        </div>
     </section>
     `;
 };
