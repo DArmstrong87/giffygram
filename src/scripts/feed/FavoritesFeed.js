@@ -18,11 +18,11 @@ export const FavoritesFeed = () =>{
         html += `${likedPost.map((post)=>{
            return `<div class="post">
            <h3>${post.title}</h3>
-           <img class="post__image" src=${post.imageUrl}>
+           <img class="post__image" src="${post.imageUrl}">
        </div>
        <div class="post__tagline">${post.description}</div>
        <div class="post__tagline">
-           Posted by <b><a href="">${users.find((user)=> user.id === post.userId).name}</a></b> on ${post.timeStamp}
+           Posted by <b><a href="">${users.find((user)=> user.id === post.userId).name}</a></b> on ${[new Date(post.timestamp).getMonth() + 1, new Date(post.timestamp).getDate(), new Date(post.timestamp).getFullYear()].join("/")}
        </div>
        <div class="post__actions">
        <img class="post__icon" id="deleteLike--${likes.find((like)=> like.postId === post.id).id}" src="./images/favorite-star-yellow.svg" />

@@ -72,7 +72,7 @@ const listPosts = (post) => {
     let html =
         `<div class="post">
             <h3>${post.title}</h3>
-            <img class="post__image" src=${post.imageUrl}>
+            <img class="post__image" src="${post.imageUrl}">
         </div>
         <div class="post__tagline">${post.description}</div>
         <div class="post__tagline">
