@@ -59,8 +59,8 @@ const listPosts = (post) => {
     const users = getUsers()
     const currentUser = getCurrentUser()
     const likes = getLikes()
-    const newDate = new Date()
-    const date = [newDate.getMonth(post.timestamp) + 1, newDate.getDate(post.timestamp), newDate.getFullYear(post.timestamp)].join("/")
+    const newDate = new Date(post.timestamp)
+    const date = [newDate.getMonth() + 1, newDate.getDate(), newDate.getFullYear()].join("/")
     const foundUser = users.find(
         user => {
             return user.id === post.userId
