@@ -50,7 +50,7 @@ document.addEventListener("click", (click) => {
 });
 
 export const newPost = () => {
-  return `<section id="newPostContainer">
+  return `<section id="newPostContainer" >
         <div class="miniMode" id="miniMode">
     Have a gif to post?
         </div>
