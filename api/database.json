@@ -63,14 +63,6 @@
       "id": 4
     },
     {
-      "userId": 2,
-      "title": "When your code finally works correctly",
-      "imageUrl": "https://media3.giphy.com/media/S9i8jJxTvAKVHVMvvW/giphy.gif?cid=ecf05e47hyiwwydre08y12vr8llwam5ddjwy2ke2abywkkm5&rid=giphy.gif&ct=g",
-      "description": " ",
-      "timestamp": 1629596558907,
-      "id": 5
-    },
-    {
       "userId": 5,
       "title": "When you defeat those errors",
       "imageUrl": "https://media1.giphy.com/media/YtOzpQAehGOdi/giphy.gif?cid=ecf05e47hldp86p3c21pdl3kzt4r8mozabpeeg9y51xkuhse&rid=giphy.gif&ct=g",
@@ -95,11 +87,6 @@
     },
     {
       "userId": 2,
-      "postId": 5,
-      "id": 2
-    },
-    {
-      "userId": 2,
       "postId": 1,
       "id": 3
     },
@@ -107,11 +94,6 @@
       "userId": 5,
       "postId": 1,
       "id": 5
-    },
-    {
-      "userId": 5,
-      "postId": 5,
-      "id": 6
     },
     {
       "userId": 1,
@@ -122,6 +104,16 @@
       "userId": 1,
       "postId": 7,
       "id": 10
+    },
+    {
+      "userId": 2,
+      "postId": 6,
+      "id": 11
+    },
+    {
+      "userId": 2,
+      "postId": 4,
+      "id": 12
     }
   ],
   "messages": [

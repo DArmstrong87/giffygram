@@ -93,7 +93,9 @@ export const getMessageState = () => {
 export const getSelectedYear = () => {
   return applicationState.feed.selectedYear;
 };
-
+export const getSelectedUser = () => {
+  return applicationState.feed.chosenUser;
+};
 export const getDisplayFavorites = () => {
   return applicationState.feed.displayFavorites;
 };
