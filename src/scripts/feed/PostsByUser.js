@@ -25,7 +25,7 @@ export const UsersFeed = () => {
           return like.postId === post.id && like.userId === currentUser;
         });
         let starIcon = null;
-        let trashIcon = null;
+        let trashIcon = "";
         if (foundLike) {
           starIcon = `<img class="post__icon" id="deleteLike--${foundLike.id}" src="./images/favorite-star-yellow.svg" />`;
         } else {
