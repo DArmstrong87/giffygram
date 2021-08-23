@@ -4,7 +4,7 @@ document.addEventListener("change",
     change => {
         if (change.target.id === 'select-year') {
             const [, year] = change.target.value.split("--")
-            setYear(year)
+            setYear(parseInt(year))
             const applicationElement = document.querySelector(".giffygram");
             applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
             console.log(year)
@@ -12,7 +12,7 @@ document.addEventListener("change",
     }
 )
 
-export const SelectedYear = () => {
+export const SelectYear = () => {
     const selectedYear = getSelectedYear()
     const lastFiveYears = [2021, 2020, 2019, 2018, 2017]
     let html = `<div class='footer__item'><select id="select-year">`
@@ -34,6 +34,7 @@ export const SelectedYear = () => {
 
     html += `</select >
     </div >`
+    return html
 }
 
 
@@ -65,7 +66,7 @@ export const FooterBar = () => {
 
     return `
     <div class='footer__item'>
-        ${SelectedYear}
+        ${SelectYear()}
     </div>
     <div class='footer__item'>
         Posts by User (User Select)

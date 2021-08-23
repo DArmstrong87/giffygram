@@ -11,7 +11,7 @@ export const postsByYear = () => {
     return html
 }
 
-export const listPosts = (post) => {
+const listPosts = (post) => {
     const users = getUsers()
     const currentUser = getCurrentUser()
     const likes = getLikes()
