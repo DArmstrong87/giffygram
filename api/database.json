@@ -18,7 +18,6 @@
       "password": "1",
       "id": 3
     },
-
     {
       "email": "josh1@josh.com",
       "name": "Josh1",
@@ -106,11 +105,6 @@
     },
     {
       "userId": 5,
-      "postId": 6,
-      "id": 4
-    },
-    {
-      "userId": 5,
       "postId": 1,
       "id": 5
     },
@@ -118,6 +112,11 @@
       "userId": 5,
       "postId": 5,
       "id": 6
+    },
+    {
+      "userId": 1,
+      "postId": 3,
+      "id": 8
     }
   ],
   "messages": [
