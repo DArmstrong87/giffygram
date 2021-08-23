@@ -104,6 +104,9 @@ export const setDisplayMessages = (boolean) => {
 export const setCurrentUser = (item) => {
   return (applicationState.currentUser = item);
 };
+export const setRecipientUser = (item) => {
+  return (applicationState.users.id = item);
+};
 export const setDisplayMessageForm = (boolean) => {
   return (applicationState.feed.displayMessageForm = boolean);
 };
@@ -140,7 +143,20 @@ export const createNewPost = (object) => {
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
-// export const createDirectMessage = (object) => {
+export const createDirectMessage = (object) => {
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(object),
+  };
+  return fetch(`${API}/messages`, fetchOptions)
+    .then((response) => response.json())
+    .then(() => {
+      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+    });
+};
 export const createLike = (object) => {
   const fetchOptions = {
     method: "POST",

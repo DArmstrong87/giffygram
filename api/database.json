@@ -152,6 +152,20 @@
       "recipientId": 1,
       "text": "hey cuttiesssss",
       "read": false
+    },
+    {
+      "userId": 6,
+      "recipientId": 1,
+      "text": "ey gurl",
+      "read": false,
+      "id": 5
+    },
+    {
+      "userId": 6,
+      "recipientId": 2,
+      "text": "hey bob",
+      "read": true,
+      "id": 6
     }
   ],
   "follows": [
