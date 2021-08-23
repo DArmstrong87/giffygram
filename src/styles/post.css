@@ -11,6 +11,10 @@
     margin: 0 25%;
 }
 
+.new-post-container {
+    margin-top: 5em;
+}
+
 .newPost__input {
     width: 30rem;
     margin: 0.5rem 0;
@@ -48,6 +52,10 @@
     font-size: 6rem;
 }
 
+.post-feed-container {
+    margin-top: 5em;
+}
+
 .post {
     margin: 0 25%;
     flex-basis: 50%;
@@ -65,10 +73,15 @@
 
 .post__tagline {
     font-size: 1.0em;
-    margin: 1em 0 0.5em 0;
+    margin: 0 0 0.5em 25%;
 }
 
 .post__remark {
     font-size: 2em;
     margin: 1em 0 0.5em 0;
+}
+
+.post__icon {
+    height: 1.5em;
+    margin: 0em 2em 0em 2em;
 }

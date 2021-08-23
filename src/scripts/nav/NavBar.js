@@ -1,10 +1,25 @@
+import { MessageForm } from "../message/MessageForm.js";
 import { LoginForm } from "../auth/Login.js";
-import { getCurrentUser, setCurrentUser, setDisplayMessages } from "../data/provider.js";
+import {
+  setDisplayMessageForm,
+  getCurrentUser,
+  setCurrentUser,
+  setDisplayMessages,
+} from "../data/provider.js";
 import { InboxNumbers } from "../friends/DirectMessage.js";
 const applicationElement = document.querySelector(".giffygram");
 
 document.addEventListener("click", (click) => {
+  if (click.target.id === "directMessageIcon") {
+    setDisplayMessageForm(true);
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
+
+document.addEventListener("click", (click) => {
   if (click.target.id === "logo") {
+    setDisplayMessageForm(false);
+    setDisplayMessages(false);
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
@@ -16,13 +31,12 @@ document.addEventListener("click", (click) => {
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
-applicationElement.addEventListener("click",
-  (event)=>{
-    if (event.target.id ==="notification__count"){
-      setDisplayMessages(true)
-      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
-    }
-  })
+applicationElement.addEventListener("click", (event) => {
+  if (event.target.id === "notification__count") {
+    setDisplayMessages(true);
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
 export const NavBar = () => {
   let html = `
           <nav class="navigation">
