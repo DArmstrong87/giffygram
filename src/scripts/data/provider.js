@@ -32,7 +32,6 @@ export const fetchPosts = () => {
     .then((response) => response.json())
     .then((post) => {
       applicationState.posts = post;
-      console.log(applicationState);
     });
 };
 
