@@ -1,6 +1,6 @@
 
 
-export const Footer = () => {
+export const FooterBar = () => {
     return `
     <div class='footer__item'>
         Posts Since (Year Select)
