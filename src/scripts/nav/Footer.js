@@ -1,4 +1,4 @@
-import { getSelectedYear, setYear, getDisplayFavorites, setDisplayFavorites } from "../data/provider.js"
+import { getSelectedYear, setYear, getDisplayFavorites, setDisplayFavorites, setFilterChosenUser } from "../data/provider.js"
 
 document.addEventListener("change",
     change => {
@@ -52,7 +52,15 @@ applicationElement.addEventListener("change",
             }
         }
     })
-
+applicationElement.addEventListener("click",
+    (event)=>{
+        if (event.target.id === "resetfilters"){
+            setYear(0)
+            setFilterChosenUser(null)
+            setDisplayFavorites(false)
+            applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+        }
+    })
 export const FooterBar = () => {
     const displayFavorites = getDisplayFavorites()
     let checkbox = ""
@@ -73,7 +81,10 @@ export const FooterBar = () => {
     </div>
     <div class='footer__item'>
         ${checkbox}
-        Show only favorites (Checkbox)
+        
+    </div>
+    <div>
+        <button id="resetfilters">Reset</button>
     </div>
 `
 }
