@@ -14,6 +14,7 @@ const applicationState = {
     displayMessages: false,
     displayCreateUser: false,
     displayMessageForm: false,
+    selectedYear: 0,
   },
 };
 
@@ -31,7 +32,6 @@ export const fetchPosts = () => {
     .then((response) => response.json())
     .then((post) => {
       applicationState.posts = post;
-      console.log(applicationState);
     });
 };
 
@@ -87,10 +87,13 @@ export const getLoginState = () => {
 export const getDisplayMessageForm = () => {
   return applicationState.feed.displayMessageForm;
 };
-
 export const getMessageState = () => {
   return applicationState.feed.displayMessages;
 };
+export const getSelectedYear = () => {
+  return applicationState.feed.selectedYear;
+};
+
 export const getDisplayFavorites = () =>{
     return applicationState.feed.displayFavorites;
 }
@@ -109,6 +112,9 @@ export const setRecipientUser = (item) => {
 };
 export const setDisplayMessageForm = (boolean) => {
   return (applicationState.feed.displayMessageForm = boolean);
+};
+export const setYear = (year) => {
+  return (applicationState.feed.selectedYear = year);
 };
 export const setDisplayFavorites = (boolean) =>{
     return (applicationState.feed.displayFavorites = boolean)

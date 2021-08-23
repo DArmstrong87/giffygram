@@ -1,4 +1,5 @@
-import { createLike, deleteLike, deletePost, getCurrentUser, getLikes, getPosts, getUsers, getDisplayFavorites } from "../data/provider.js"
+import { postsByYear } from "./PostsByYear.js"
+import { createLike, deleteLike, deletePost, getCurrentUser, getLikes, getPosts, getUsers, getDisplayFavorites, getSelectedYear } from "../data/provider.js"
 import { FavoritesFeed } from "./FavoritesFeed.js"
 
 // Delete Post
@@ -37,20 +38,22 @@ document.addEventListener("click",
         }
     }
 )
-
 export const postFeed = () => {
-    if (getDisplayFavorites()){
+    const selectedYear = getSelectedYear()
+    if (getDisplayFavorites()) {
         return FavoritesFeed()
-    }else{
+    } else if (selectedYear > 0) {
+        return postsByYear()
+    } else {
 
         const posts = getPosts()
-        const sortedPost = posts.sort((a,b)=>  b.timestamp - a.timestamp)
+        const sortedPost = posts.sort((a, b) => b.timestamp - a.timestamp)
         let html = ''
-        
+
         html += `${sortedPost.map(post => {
             return listPosts(post)
         }).join("")}`
-        
+
         return html
     }
 }
