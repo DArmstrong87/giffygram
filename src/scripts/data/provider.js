@@ -119,6 +119,9 @@ export const setYear = (year) => {
 export const setDisplayFavorites = (boolean) => {
   return (applicationState.feed.displayFavorites = boolean);
 };
+export const setFilterChosenUser = (value) => {
+  return (applicationState.feed.chosenUser = value);
+};
 // POST FUNCTIONS
 
 export const postCreatedUser = (object) => {
