@@ -1,4 +1,4 @@
-import { getSelectedYear, setYear } from "../data/provider.js"
+import { getSelectedYear, setYear, getDisplayFavorites, setDisplayFavorites } from "../data/provider.js"
 
 document.addEventListener("change",
     change => {
@@ -12,7 +12,7 @@ document.addEventListener("change",
     }
 )
 
-export const FooterBar = () => {
+export const SelectedYear = () => {
     const selectedYear = getSelectedYear()
     const lastFiveYears = [2021, 2020, 2019, 2018, 2017]
     let html = `<div class='footer__item'><select id="select-year">`
@@ -33,13 +33,46 @@ export const FooterBar = () => {
         })
 
     html += `</select >
-    </div >
+    </div >`
+}
+
+
+const applicationElement = document.querySelector(".giffygram")
+applicationElement.addEventListener("change",
+    (event) => {
+        const displayFavorites = getDisplayFavorites()
+        if (event.target.name === "favoritesDisplay") {
+            if (displayFavorites) {
+                setDisplayFavorites(false)
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            } else {
+                setDisplayFavorites(true)
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        }
+    })
+
+export const FooterBar = () => {
+    const displayFavorites = getDisplayFavorites()
+    let checkbox = ""
+    if (displayFavorites) {
+        checkbox = `<label for="favoritesDisplay">Favorites</label>
+        <input name="favoritesDisplay"type="checkbox" checked/>`
+    } else {
+        checkbox = `<label for="favoritesDisplay">Favorites</label>
+        <input name="favoritesDisplay"type="checkbox"/>`
+    }
+
+    return `
+    <div class='footer__item'>
+        ${SelectedYear}
+    </div>
     <div class='footer__item'>
         Posts by User (User Select)
     </div>
     <div class='footer__item'>
+        ${checkbox}
         Show only favorites (Checkbox)
     </div>
 `
-    return html
 }

@@ -1,5 +1,6 @@
-import { createLike, deleteLike, deletePost, getCurrentUser, getLikes, getPosts, getSelectedYear, getUsers } from "../data/provider.js"
 import { postsByYear } from "./PostsByYear.js"
+import { createLike, deleteLike, deletePost, getCurrentUser, getLikes, getPosts, getUsers, getDisplayFavorites } from "../data/provider.js"
+import { FavoritesFeed } from "./FavoritesFeed.js"
 
 // Delete Post
 document.addEventListener("click",
@@ -39,10 +40,56 @@ document.addEventListener("click",
 )
 
 export const postFeed = () => {
-    const posts = getPosts()
-    let html = ''
+    if (getDisplayFavorites()){
+        return FavoritesFeed()
+    }else{
 
-    html += postsByYear()
+        const posts = getPosts()
+        let html = ''
+        
+        html += `${posts.map(post => {
+            return listPosts(post)
+        }).join("")}`
+        
+        return html
+    }
+}
 
+const listPosts = (post) => {
+    const users = getUsers()
+    const currentUser = getCurrentUser()
+    const likes = getLikes()
+    const newDate = new Date()
+    const date = [newDate.getMonth(post.timestamp) + 1, newDate.getDate(post.timestamp), newDate.getFullYear(post.timestamp)].join("/")
+    const foundUser = users.find(
+        user => {
+            return user.id === post.userId
+        })
+    const foundLike = likes.find(
+        like => {
+            return like.postId === post.id && like.userId === currentUser
+        }
+    )
+    let html =
+        `<div class="post">
+            <h3>${post.title}</h3>
+            <img class="post__image" src="${post.imageUrl}">
+        </div>
+        <div class="post__tagline">${post.description}</div>
+        <div class="post__tagline">
+            Posted by <b><a href="">${foundUser.name}</a></b> on ${date}
+        </div>
+        <div class="post__actions">`
+
+    if (foundLike) {
+        html += `<img class="post__icon" id="deleteLike--${foundLike.id}" src="./images/favorite-star-yellow.svg" />`
+    } else {
+        html += `<img class="post__icon" id="like--${post.id}" src="./images/favorite-star-blank.svg" />`
+    }
+
+    if (post.userId === currentUser) {
+        html += `<img class="post__icon" id="deletePost--${post.id}" src="./images/block.svg" /></div>`
+    }
+    html += `</div>`
     return html
 }

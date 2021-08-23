@@ -94,6 +94,9 @@ export const getSelectedYear = () => {
   return applicationState.feed.selectedYear;
 };
 
+export const getDisplayFavorites = () =>{
+    return applicationState.feed.displayFavorites;
+}
 //SETTERS
 export const setDisplayCreateUser = (boolean) => {
   return (applicationState.feed.displayCreateUser = boolean);
@@ -113,6 +116,9 @@ export const setDisplayMessageForm = (boolean) => {
 export const setYear = (year) => {
   return (applicationState.feed.selectedYear = year);
 };
+export const setDisplayFavorites = (boolean) =>{
+    return (applicationState.feed.displayFavorites = boolean)
+}
 // POST FUNCTIONS
 
 export const postCreatedUser = (object) => {

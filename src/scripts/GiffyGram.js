@@ -9,13 +9,13 @@ import { FooterBar } from "./nav/Footer.js";
 export const GiffyGram = () => {
   if (getMessageState()) {
     return `<div>${NavBar()}</div>
-                <div>${DirectMessagesHtml()}`;
+                <div>${DirectMessagesHtml()}</div>`;
   } else {
     return `<div>${NavBar()}</div>
         <div id="newMessageForm">${MessageForm()}</div>; 
         <div class="new-post-container">
         ${newPost()}</div>
-        <div class="giffygram__feed">${postFeed()}</div>
+        <section class="giffygram__feed">${postFeed()}</section>
         <div class='footer'>${FooterBar()}</div>`;
   }
 };
