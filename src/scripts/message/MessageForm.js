@@ -21,6 +21,7 @@ document.addEventListener("change", (event) => {
     selectedRecipient = parseInt(recipientId);
     console.log(selectedRecipient);
     setRecipientUser(selectedRecipient);
+    selectedRecipient = "";
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
@@ -73,7 +74,7 @@ export const MessageForm = () => {
     <input name="message" class="message__input" type="text" placeholder="Message to user">
     </div>
     
-    <button id="directMessage__submit">Save</button>
+    <button id="directMessage__submit">Send</button>
     <button id="directMessage__cancel">Cancel</button>
     
     </div>
