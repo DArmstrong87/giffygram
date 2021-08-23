@@ -6,7 +6,7 @@ document.addEventListener("click",
         const clicked = click.target.id
         if (clicked.startsWith('deletePost--') === true) {
             const [, postId] = clicked.split("--")
-            deletePost(postId)
+            deletePost(parseInt(postId))
         }
     }
 )
