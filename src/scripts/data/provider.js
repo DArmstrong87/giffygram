@@ -91,6 +91,9 @@ export const getDisplayMessageForm = () => {
 export const getMessageState = () => {
   return applicationState.feed.displayMessages;
 };
+export const getDisplayFavorites = () =>{
+    return applicationState.feed.displayFavorites;
+}
 //SETTERS
 export const setDisplayCreateUser = (boolean) => {
   return (applicationState.feed.displayCreateUser = boolean);
@@ -107,6 +110,9 @@ export const setRecipientUser = (item) => {
 export const setDisplayMessageForm = (boolean) => {
   return (applicationState.feed.displayMessageForm = boolean);
 };
+export const setDisplayFavorites = (boolean) =>{
+    return (applicationState.feed.displayFavorites = boolean)
+}
 // POST FUNCTIONS
 
 export const postCreatedUser = (object) => {

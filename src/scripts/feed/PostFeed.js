@@ -1,4 +1,5 @@
-import { createLike, deleteLike, deletePost, getCurrentUser, getLikes, getPosts, getUsers } from "../data/provider.js"
+import { createLike, deleteLike, deletePost, getCurrentUser, getLikes, getPosts, getUsers, getDisplayFavorites } from "../data/provider.js"
+import { FavoritesFeed } from "./FavoritesFeed.js"
 
 // Delete Post
 document.addEventListener("click",
@@ -38,14 +39,19 @@ document.addEventListener("click",
 )
 
 export const postFeed = () => {
-    const posts = getPosts()
-    let html = ''
+    if (getDisplayFavorites()){
+        return FavoritesFeed()
+    }else{
 
-    html += `${posts.map(post => {
-        return listPosts(post)
-    }).join("")}`
-
-    return html
+        const posts = getPosts()
+        let html = ''
+        
+        html += `${posts.map(post => {
+            return listPosts(post)
+        }).join("")}`
+        
+        return html
+    }
 }
 
 const listPosts = (post) => {
@@ -66,7 +72,7 @@ const listPosts = (post) => {
     let html =
         `<div class="post">
             <h3>${post.title}</h3>
-            <img class="post__image" src=${post.imageUrl}>
+            <img class="post__image" src="${post.imageUrl}">
         </div>
         <div class="post__tagline">${post.description}</div>
         <div class="post__tagline">

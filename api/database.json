@@ -105,11 +105,6 @@
     },
     {
       "userId": 5,
-      "postId": 6,
-      "id": 4
-    },
-    {
-      "userId": 5,
       "postId": 1,
       "id": 5
     },
@@ -117,6 +112,16 @@
       "userId": 5,
       "postId": 5,
       "id": 6
+    },
+    {
+      "userId": 1,
+      "postId": 3,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "postId": 6,
+      "id": 9
     }
   ],
   "messages": [
