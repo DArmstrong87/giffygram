@@ -62,7 +62,7 @@
       "userId": 2,
       "recipientId": 1,
       "text": "you amazing",
-      "read": false
+      "read": true
     },
     {
       "id": 4,
