@@ -126,6 +126,39 @@ export const createNewPost = (object) => {
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
+export const createLike = (object) => {
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(object),
+  };
+  return fetch(`${API}/likes`, fetchOptions)
+    .then((response) => response.json())
+    .then(() => {
+      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+    });
+};
+
+
+// Delete Functions
+export const deletePost = (id) => {
+  return fetch(`${API}/posts/${id}`, { method: "DELETE" })
+    .then(
+      () => {
+        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+      }
+    )
+}
+export const deleteLike = (id) => {
+  return fetch(`${API}/likes/${id}`, { method: "DELETE" })
+    .then(
+      () => {
+        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+      }
+    )
+}
 
 //PATCH
 export const UpdateMessageRead = (object, id)=>{

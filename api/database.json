@@ -23,16 +23,62 @@
       "name": "Josh1",
       "password": "123",
       "id": 4
+    },
+    {
+      "email": "danny@danny.com",
+      "name": "Danny Bwai",
+      "password": "danny",
+      "id": 5
     }
   ],
   "posts": [
     {
       "id": 1,
       "userId": 1,
-      "title": "Dummy Post",
-      "imageUrl": "https://giphy.com/clips/bestfriends-cat-cats-kitty-IsDjNQPc4weWPEwhWm",
-      "description": "cat",
+      "title": "Cat Sith",
+      "imageUrl": "https://media4.giphy.com/media/q1MeAPDDMb43K/giphy.gif?cid=ecf05e475mamv3r5zn5oyyvx7ngkizn2181txp1nvnxi45oo&rid=giphy.gif",
+      "description": "Cat Sith defends himself against Jedi Doggos",
       "timestamp": 1497580619498
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "title": "You get an error!",
+      "imageUrl": "https://media3.giphy.com/media/y8Mz1yj13s3kI/200.webp?cid=ecf05e47lml3k8wreyd9mtqr91fjrsxq68bep8n5ix3mubc4&rid=200.webp&ct=g",
+      "description": "And you get an error... EVERYONE GETS AN ERROR!",
+      "timestamp": 1497580619498
+    },
+    {
+      "userId": 2,
+      "title": "Go On, Git",
+      "imageUrl": "https://i.giphy.com/media/j5Qgf8rf2VYnoWH3SY/200w.webp",
+      "description": "Time to git!",
+      "timestamp": 1629596399972,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "title": "When your code finally works correctly",
+      "imageUrl": "https://media3.giphy.com/media/S9i8jJxTvAKVHVMvvW/giphy.gif?cid=ecf05e47hyiwwydre08y12vr8llwam5ddjwy2ke2abywkkm5&rid=giphy.gif&ct=g",
+      "description": " ",
+      "timestamp": 1629596558907,
+      "id": 5
+    },
+    {
+      "userId": 5,
+      "title": "When you defeat those errors",
+      "imageUrl": "https://media1.giphy.com/media/YtOzpQAehGOdi/giphy.gif?cid=ecf05e47hldp86p3c21pdl3kzt4r8mozabpeeg9y51xkuhse&rid=giphy.gif&ct=g",
+      "description": "I still can't make horizontal bubble rings.",
+      "timestamp": 1629597929781,
+      "id": 6
+    },
+    {
+      "userId": 5,
+      "title": "Best Preds Celebration",
+      "imageUrl": "https://media0.giphy.com/media/xT4uQe4Qq93zR3LsWI/giphy.gif?cid=ecf05e47b3zz7nosnpaz5qpholgbhl3z20h0rlcvooqsphdm&rid=giphy.gif&ct=g",
+      "description": "Mike fisher scores in triple OT!",
+      "timestamp": 1629598105984,
+      "id": 7
     }
   ],
   "likes": [
@@ -40,6 +86,31 @@
       "id": 1,
       "userId": 1,
       "postId": 1
+    },
+    {
+      "userId": 2,
+      "postId": 5,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "postId": 1,
+      "id": 3
+    },
+    {
+      "userId": 5,
+      "postId": 6,
+      "id": 4
+    },
+    {
+      "userId": 5,
+      "postId": 1,
+      "id": 5
+    },
+    {
+      "userId": 5,
+      "postId": 5,
+      "id": 6
     }
   ],
   "messages": [
