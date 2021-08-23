@@ -1,5 +1,4 @@
 import {
-  createDirectMessage,
   getDisplayMessageForm,
   getUsers,
   setDisplayMessageForm,

@@ -1,15 +1,12 @@
-<<<<<<< HEAD
+import { MessageForm } from "../message/MessageForm.js";
+import { LoginForm } from "../auth/Login.js";
 import {
-  setCurrentUser,
   setDisplayMessageForm,
+  getCurrentUser,
+  setCurrentUser,
   setDisplayMessages,
 } from "../data/provider.js";
-import { MessageForm } from "../message/MessageForm.js";
-=======
-import { LoginForm } from "../auth/Login.js";
-import { getCurrentUser, setCurrentUser, setDisplayMessages } from "../data/provider.js";
 import { InboxNumbers } from "../friends/DirectMessage.js";
->>>>>>> main
 const applicationElement = document.querySelector(".giffygram");
 
 document.addEventListener("click", (click) => {
@@ -34,13 +31,12 @@ document.addEventListener("click", (click) => {
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
-applicationElement.addEventListener("click",
-  (event)=>{
-    if (event.target.id ==="notification__count"){
-      setDisplayMessages(true)
-      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
-    }
-  })
+applicationElement.addEventListener("click", (event) => {
+  if (event.target.id === "notification__count") {
+    setDisplayMessages(true);
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
 export const NavBar = () => {
   let html = `
           <nav class="navigation">
