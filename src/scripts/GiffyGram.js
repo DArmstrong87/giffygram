@@ -12,7 +12,7 @@ export const GiffyGram = () => {
                 <div>${DirectMessagesHtml()}</div>`;
   } else {
     return `<div>${NavBar()}</div>
-        <div id="newMessageForm">${MessageForm()}</div>; 
+        <div id="newMessageForm">${MessageForm()}</div>
         <div class="new-post-container">
         ${newPost()}</div>
         <section class="giffygram__feed">${postFeed()}</section>

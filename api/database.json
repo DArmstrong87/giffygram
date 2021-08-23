@@ -158,6 +158,13 @@
       "text": "hey bob",
       "read": true,
       "id": 6
+    },
+    {
+      "userId": 2,
+      "recipientId": 6,
+      "text": "ey boi",
+      "read": false,
+      "id": 7
     }
   ],
   "follows": [
