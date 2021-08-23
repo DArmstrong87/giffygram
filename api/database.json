@@ -18,6 +18,7 @@
       "password": "1",
       "id": 3
     },
+
     {
       "email": "josh1@josh.com",
       "name": "Josh1",
@@ -29,6 +30,12 @@
       "name": "Danny Bwai",
       "password": "danny",
       "id": 5
+    },
+    {
+      "email": "travis@travis.com",
+      "name": "travis",
+      "password": "travis",
+      "id": 6
     }
   ],
   "posts": [

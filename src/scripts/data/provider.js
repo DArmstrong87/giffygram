@@ -13,6 +13,7 @@ const applicationState = {
     displayFavorites: false,
     displayMessages: false,
     displayCreateUser: false,
+    displayMessageForm: false,
   },
 };
 
@@ -83,9 +84,13 @@ export const getFeed = () => {
 export const getLoginState = () => {
   return applicationState.feed.displayCreateUser;
 };
+export const getDisplayMessageForm = () => {
+  return applicationState.feed.displayMessageForm;
+};
+
 export const getMessageState = () => {
-    return applicationState.feed.displayMessages;
-}
+  return applicationState.feed.displayMessages;
+};
 //SETTERS
 export const setDisplayCreateUser = (boolean) => {
   return (applicationState.feed.displayCreateUser = boolean);
@@ -95,6 +100,9 @@ export const setDisplayMessages = (boolean) => {
 };
 export const setCurrentUser = (item) => {
   return (applicationState.currentUser = item);
+};
+export const setDisplayMessageForm = (boolean) => {
+  return (applicationState.feed.displayMessageForm = boolean);
 };
 // POST FUNCTIONS
 
@@ -126,6 +134,7 @@ export const createNewPost = (object) => {
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
+// export const createDirectMessage = (object) => {
 export const createLike = (object) => {
   const fetchOptions = {
     method: "POST",
@@ -134,6 +143,7 @@ export const createLike = (object) => {
     },
     body: JSON.stringify(object),
   };
+
   return fetch(`${API}/likes`, fetchOptions)
     .then((response) => response.json())
     .then(() => {
@@ -141,40 +151,30 @@ export const createLike = (object) => {
     });
 };
 
-
 // Delete Functions
 export const deletePost = (id) => {
-  return fetch(`${API}/posts/${id}`, { method: "DELETE" })
-    .then(
-      () => {
-        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
-      }
-    )
-}
+  return fetch(`${API}/posts/${id}`, { method: "DELETE" }).then(() => {
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  });
+};
 export const deleteLike = (id) => {
-  return fetch(`${API}/likes/${id}`, { method: "DELETE" })
-    .then(
-      () => {
-        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
-      }
-    )
-}
+  return fetch(`${API}/likes/${id}`, { method: "DELETE" }).then(() => {
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  });
+};
 
 //PATCH
-export const UpdateMessageRead = (object, id)=>{
-    const fetchOptions ={
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(object)
-    }
-    return fetch(`${API}/messages/${id}`, fetchOptions)
+export const UpdateMessageRead = (object, id) => {
+  const fetchOptions = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(object),
+  };
+  return fetch(`${API}/messages/${id}`, fetchOptions)
     .then((response) => response.json())
-    .then(()=>{
-        applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
-    })
-
-    
-    
-}
+    .then(() => {
+      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+    });
+};
