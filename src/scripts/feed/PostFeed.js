@@ -1,4 +1,4 @@
-import { createLike, deleteLike, deletePost, getCurrentUser, getLikes, getPosts, getUsers } from "../data/provider.js"
+import { createLike, deleteLike, deletePost, getCurrentUser, getLikes, getPosts, getSelectedYear, getUsers } from "../data/provider.js"
 
 // Delete Post
 document.addEventListener("click",
@@ -54,6 +54,8 @@ const listPosts = (post) => {
     const likes = getLikes()
     const newDate = new Date()
     const date = [newDate.getMonth(post.timestamp) + 1, newDate.getDate(post.timestamp), newDate.getFullYear(post.timestamp)].join("/")
+    const selectedYear = getSelectedYear()
+    const postYear = newDate.getFullYear(post.timestamp)
     const foundUser = users.find(
         user => {
             return user.id === post.userId
@@ -63,16 +65,31 @@ const listPosts = (post) => {
             return like.postId === post.id && like.userId === currentUser
         }
     )
-    let html =
-        `<div class="post">
-            <h3>${post.title}</h3>
-            <img class="post__image" src=${post.imageUrl}>
-        </div>
-        <div class="post__tagline">${post.description}</div>
-        <div class="post__tagline">
-            Posted by <b><a href="">${foundUser.name}</a></b> on ${date}
-        </div>
-        <div class="post__actions">`
+    let html = ''
+
+    if (selectedYear === 0) {
+        html +=
+            `<div class="post">
+                <h3>${post.title}</h3>
+                <img class="post__image" src=${post.imageUrl}>
+            </div>
+            <div class="post__tagline">${post.description}</div>
+            <div class="post__tagline">
+                Posted by <b><a href="">${foundUser.name}</a></b> on ${date}
+            </div>
+            <div class="post__actions">`
+    } else if (selectedYear === postYear) {
+        html += 
+            `<div class="post">
+                <h3>${post.title}</h3>
+                <img class="post__image" src=${post.imageUrl}>
+            </div>
+            <div class="post__tagline">${post.description}</div>
+            <div class="post__tagline">
+                Posted by <b><a href="">${foundUser.name}</a></b> on ${date}
+            </div>
+            <div class="post__actions">`
+    }
 
     if (foundLike) {
         html += `<img class="post__icon" id="deleteLike--${foundLike.id}" src="./images/favorite-star-yellow.svg" />`
