@@ -12,10 +12,10 @@ export const FavoritesFeed = () =>{
             return post
         }
     })
-    
     let html = ""
     if (likedPost !== undefined){
-        html += `${likedPost.map((post)=>{
+        const sortedPost = likedPost.sort((a,b)=>  b.timestamp - a.timestamp)
+        html += `${sortedPost.map((post)=>{
            return `<div class="post">
            <h3>${post.title}</h3>
            <img class="post__image" src="${post.imageUrl}">

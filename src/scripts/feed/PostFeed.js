@@ -44,9 +44,10 @@ export const postFeed = () => {
     }else{
 
         const posts = getPosts()
+        const sortedPost = posts.sort((a,b)=>  b.timestamp - a.timestamp)
         let html = ''
         
-        html += `${posts.map(post => {
+        html += `${sortedPost.map(post => {
             return listPosts(post)
         }).join("")}`
         
