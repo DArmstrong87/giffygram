@@ -6,6 +6,7 @@ import {
   setDisplayMessageForm,
   setRecipientUser,
 } from "../data/provider.js";
+
 const applicationElement = document.querySelector(".giffygram");
 let selectedRecipient = "";
 
@@ -15,6 +16,7 @@ document.addEventListener("click", (click) => {
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
+
 document.addEventListener("change", (event) => {
   if (event.target.id === "select--recipient") {
     const [, recipientId] = event.target.value.split("--");
