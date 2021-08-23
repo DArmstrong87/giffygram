@@ -75,11 +75,11 @@ export const getMessages = () => {
 export const getFollows = () => {
   return applicationState.follows.map((follow) => ({ ...follow }));
 };
-export const getCurrentUser = () => {
-  return applicationState.currentUser;
-};
 export const getFeed = () => {
   return applicationState.feed.map((feed) => ({ ...feed }));
+};
+export const getCurrentUser = () => {
+  return applicationState.currentUser;
 };
 export const getLoginState = () => {
   return applicationState.feed.displayCreateUser;
@@ -94,9 +94,9 @@ export const getSelectedYear = () => {
   return applicationState.feed.selectedYear;
 };
 
-export const getDisplayFavorites = () =>{
-    return applicationState.feed.displayFavorites;
-}
+export const getDisplayFavorites = () => {
+  return applicationState.feed.displayFavorites;
+};
 //SETTERS
 export const setDisplayCreateUser = (boolean) => {
   return (applicationState.feed.displayCreateUser = boolean);
@@ -116,9 +116,9 @@ export const setDisplayMessageForm = (boolean) => {
 export const setYear = (year) => {
   return (applicationState.feed.selectedYear = year);
 };
-export const setDisplayFavorites = (boolean) =>{
-    return (applicationState.feed.displayFavorites = boolean)
-}
+export const setDisplayFavorites = (boolean) => {
+  return (applicationState.feed.displayFavorites = boolean);
+};
 // POST FUNCTIONS
 
 export const postCreatedUser = (object) => {
