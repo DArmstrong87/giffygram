@@ -5,11 +5,11 @@ import {
   deletePost,
   getCurrentUser,
   getLikes,
-  getPosts,
   getUsers,
   getDisplayFavorites,
   getSelectedYear,
   getSelectedUser,
+  getPostsState,
 } from "../data/provider.js";
 
 
@@ -44,77 +44,10 @@ document.addEventListener("click", (click) => {
   }
 });
 export const postFeed = () => {
-  const selectedYear = getSelectedYear();
-  const selectedUser = getSelectedUser();
-  const posts = getPosts()
-  const likes = getLikes()
-  const currentUser = getCurrentUser()
-  let html = ""
-  //if display favorites is true then filters the post to make it display only liked post
-  if (getDisplayFavorites()) {
-    const likedPost = posts.filter((post)=>{
-        const foundLike = likes.find((like)=> like.postId === post.id && like.userId === currentUser)
-        if (foundLike !== undefined){
-            return post
-        }
-    });
-    if (likedPost.length > 0){
-        const sortedPost = likedPost.sort((a, b) => b.timestamp - a.timestamp);
-        html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
-        return html
-
-    }else{
-        html = `<h3>You have not liked any post! Click the Star on the Post to Like the post</h3>`
-        return html
-    }
-//if a year is selected then filters the post to make it display only post with the correct year
-  } else if (selectedYear > 0) {
-    const selectedYear = getSelectedYear();
-    const matchedYear = posts.filter((post)=>{
-        const newDate = new Date(post.timestamp);
-        const postYear = newDate.getFullYear(post.timestamp);
-        return postYear === selectedYear
-    })
-    if (matchedYear.length > 0 ){
-        const sortedPost = matchedYear.sort((a, b) => b.timestamp - a.timestamp);
-        html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
-        return html
-
-    }else{
-        html = `<h3>There are no post for this Year!</h3>`
-        return html
-    }
-// if a user is selected then it will filter post by selected user
-  } else if (selectedUser !== null) {
-    const foundUser = getUsers().find((user)=> user.id === selectedUser)
-    const selectedUserPost = posts.filter((post)=>{
-        return post.userId === selectedUser
-    })
-    if (selectedUserPost.length > 0 ){
-        const sortedPost = selectedUserPost.sort((a, b) => b.timestamp - a.timestamp);
-        html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
-        return html
-
-    }else{
-        html = `<h3>${foundUser.name} has not added any post yet!</h3>`
-        return html
-    }
-  } else {
-    const posts = getPosts();
-    const sortedPost = posts.sort((a, b) => b.timestamp - a.timestamp);
-    let html = "";
-
-    html += `${sortedPost
-      .map((post) => {
-        return listPosts(post);
-      })
-      .join("")}`;
-
-      return html;
-    }
+  return getPostsState()
 };
 
-const listPosts = (post) => {
+export const listPosts = (post) => {
   const users = getUsers();
   const currentUser = getCurrentUser();
   const likes = getLikes();

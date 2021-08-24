@@ -1,12 +1,4 @@
-import {
-  getSelectedYear,
-  setYear,
-  getDisplayFavorites,
-  setDisplayFavorites,
-  setFilterChosenUser,
-  getSelectedUser,
-  getUsers,
-} from "../data/provider.js";
+import { getSelectedYear, setYear, getDisplayFavorites, setDisplayFavorites, setFilterChosenUser, getSelectedUser, getUsers, getPosts } from "../data/provider.js";
 
 document.addEventListener("change", (change) => {
   if (change.target.id === "select-year") {
@@ -26,21 +18,36 @@ document.addEventListener("change", (change) => {
 });
 
 const SelectYear = () => {
+  const posts = getPosts()
   const selectedYear = getSelectedYear();
-  const lastFiveYears = [2021, 2020, 2019, 2018, 2017];
+
+  const currentYear = new Date(Date.now()).getFullYear()
+  const lastFiveYears = []
+  for (let i = 0; i < 5; i++) {
+    lastFiveYears.push(currentYear - i)
+  }
+  const findPostQty = function (year) {
+    const postQty = posts.filter(post => {
+      if (year === new Date((post.timestamp)).getFullYear()) {
+        return post
+      }
+    })
+    return postQty.length
+  }
+
   let html = `<div class='footer__item'><select id="select-year">`;
 
   if (selectedYear === 0) {
-    html += `<option selected value="year--0">All Posts</option>`;
+    html += `<option selected value="year--0">All Posts (${posts.length})</option>`;
   } else {
-    html += `<option value="year--0">All Posts</option>`;
+    html += `<option value="year--0">All Posts (${posts.length})</option>`;
   }
-
   lastFiveYears.map((year) => {
+    const postQty = findPostQty(year)
     if (year === selectedYear) {
-      html += `<option selected value="year--${year}">${year}</option>`;
+      html += `<option selected value="year--${year}">${year} (${postQty})</option>`;
     } else {
-      html += `<option value="year--${year}">${year}</option>`;
+      html += `<option value="year--${year}">${year} (${postQty})</option>`;
     }
   });
 
@@ -57,23 +64,23 @@ const SelectUser = () => {
   if (selectedUser === null) {
     html += `<option>Choose a user...</option>
     ${users
-      .map((user) => {
-        return `<option value="select--${user.id}">${user.name}</option>`;
-      })
-      .join("")}
+        .map((user) => {
+          return `<option value="select--${user.id}">${user.name}</option>`;
+        })
+        .join("")}
     </select>
     </div>`;
   } else {
     html += `<option>Choose a user...</option>
     ${users
-      .map((user) => {
-        if (selectedUser === user.id) {
-          return `<option selected value="select--${user.id}">${user.name}</option>`;
-        } else {
-          return `<option value="select--${user.id}">${user.name}</option>`;
-        }
-      })
-      .join("")}
+        .map((user) => {
+          if (selectedUser === user.id) {
+            return `<option selected value="select--${user.id}">${user.name}</option>`;
+          } else {
+            return `<option value="select--${user.id}">${user.name}</option>`;
+          }
+        })
+        .join("")}
     </select>
     </div>`;
   }
