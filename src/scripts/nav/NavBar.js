@@ -4,6 +4,9 @@ import {
   setDisplayMessages,
   getCurrentUser,
   getUsers,
+  setYear,
+  setFilterChosenUser,
+  setDisplayFavorites,
 } from "../data/provider.js";
 import { InboxNumbers } from "../friends/DirectMessage.js";
 const applicationElement = document.querySelector(".giffygram");
@@ -19,6 +22,9 @@ document.addEventListener("click", (click) => {
   if (click.target.id === "logo") {
     setDisplayMessageForm(false);
     setDisplayMessages(false);
+    setYear(0);
+    setFilterChosenUser(null);
+    setDisplayFavorites(false);
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
