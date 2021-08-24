@@ -45,7 +45,6 @@ document.addEventListener("click", (click) => {
       createNewPost(dataToAPI);
     }
     const posts = getPosts();
-    console.log(posts);
   }
 });
 
