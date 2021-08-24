@@ -23,27 +23,31 @@ const SelectYear = () => {
 
   const currentYear = new Date(Date.now()).getFullYear()
   const lastFiveYears = []
-  for (let i=0; i<5; i++){
+  for (let i = 0; i < 5; i++) {
     lastFiveYears.push(currentYear - i)
   }
-
-    console.log(lastFiveYears)
-
+  const findPostQty = function (year) {
+    const postQty = posts.filter(post => {
+      if (year === new Date((post.timestamp)).getFullYear()) {
+        return post
+      }
+    })
+    return postQty.length
+  }
 
   let html = `<div class='footer__item'><select id="select-year">`;
 
   if (selectedYear === 0) {
-    html += `<option selected value="year--0">All Posts</option>`;
+    html += `<option selected value="year--0">All Posts (${posts.length})</option>`;
   } else {
-    html += `<option value="year--0">All Posts</option>`;
+    html += `<option value="year--0">All Posts (${posts.length})</option>`;
   }
-
-
   lastFiveYears.map((year) => {
+    const postQty = findPostQty(year)
     if (year === selectedYear) {
-      html += `<option selected value="year--${year}">${year}</option>`;
+      html += `<option selected value="year--${year}">${year} (${postQty})</option>`;
     } else {
-      html += `<option value="year--${year}">${year}</option>`;
+      html += `<option value="year--${year}">${year} (${postQty})</option>`;
     }
   });
 
