@@ -24,19 +24,12 @@ export const DirectMessagesHtml = ()=>{
     const filteredMessages = messages.filter((message)=>{
         return message.recipientId === currentUser.id
     })
-    const readMessages = filteredMessages.filter((message)=>{
-        return message.read === true
-    })
-    const unReadMessages = filteredMessages.filter((message)=>{
-        return message.read === false
-    })
-    const inbox = unReadMessages.concat(readMessages)
     return `
         <div class="messages">
             <h1>${currentUser.name}'s Inbox</h1>
             <button id="closeMessage">Close Messages</button>
             <div class="messageList">
-                ${inbox.map((message)=>{
+                ${filteredMessages.map((message)=>{
                     if (message.read === true){
                         return `<div class="message read" id="message--${message.id}">
                                     <div class="message__author"> From: ${users.find(user =>{
