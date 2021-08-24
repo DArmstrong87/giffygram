@@ -29,8 +29,13 @@ const SelectYear = () => {
   }
 
   const years = [...new Set(allYears)]
-  console.log(years)
-  
+  console.log(years.sort((a, b) => {
+    if (a > b) {
+      return -1
+    } else
+      return 1
+  }))
+
   let html = `<div class='footer__item'><select id="select-year">`;
 
   if (selectedYear === 0) {
