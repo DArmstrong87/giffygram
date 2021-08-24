@@ -1,0 +1,23 @@
+{
+  "name": "giffygram-permafrost",
+  "version": "1.0.0",
+  "description": "For this project, you will be building a web application that lets people post their favorite gifs. Each post can be favorited by other users, and deleted by the original author. Users can also send direct messages to each other, and be notified when they have messages.",
+  "main": "index.js",
+  "dependencies": {
+    "sweetalert2": "^11.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nss-day-cohort-50/giffygram-permafrost.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nss-day-cohort-50/giffygram-permafrost/issues"
+  },
+  "homepage": "https://github.com/nss-day-cohort-50/giffygram-permafrost#readme"
+}
