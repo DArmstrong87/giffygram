@@ -95,11 +95,6 @@
       "userId": 2,
       "postId": 7,
       "id": 16
-    },
-    {
-      "userId": 1,
-      "postId": 1,
-      "id": 17
     }
   ],
   "messages": [
@@ -122,7 +117,7 @@
       "userId": 2,
       "recipientId": 1,
       "text": "you amazing",
-      "read": false
+      "read": true
     },
     {
       "id": 4,
@@ -135,7 +130,7 @@
       "userId": 6,
       "recipientId": 1,
       "text": "ey gurl",
-      "read": true,
+      "read": false,
       "id": 5
     },
     {

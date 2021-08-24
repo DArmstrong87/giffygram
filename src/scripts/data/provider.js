@@ -45,10 +45,11 @@ export const fetchLikes = () => {
 };
 
 export const fetchMessages = () => {
-  return fetch(`${API}/messages`)
+  return fetch(`${API}/messages?_sort=read&_order=asc`)
     .then((response) => response.json())
     .then((message) => {
       applicationState.messages = message;
+      console.log(applicationState.messages)
     });
 };
 
