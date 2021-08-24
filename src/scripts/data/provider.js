@@ -15,7 +15,7 @@ const applicationState = {
     displayCreateUser: false,
     displayMessageForm: false,
     selectedYear: 0,
-    displayNewPostForm: false
+    displayNewPostForm: false,
   },
 };
 
@@ -143,7 +143,8 @@ export const postCreatedUser = (object) => {
   };
   return fetch(`${API}/users`, fetchOptions)
     .then((response) => response.json())
-    .then(() => {
+    .then((data) => {
+      localStorage.setItem("gg_user", data.id);
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };

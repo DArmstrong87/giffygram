@@ -41,6 +41,24 @@
       "name": "Steve",
       "password": "123",
       "id": 7
+    },
+    {
+      "email": "timmy@timmy.com",
+      "name": "timmy",
+      "password": "timmy",
+      "id": 8
+    },
+    {
+      "email": "jo@jo.com",
+      "name": "jo",
+      "password": "jo",
+      "id": 9
+    },
+    {
+      "email": "jimmy@jimmy.com",
+      "name": "jimmy",
+      "password": "jimmy",
+      "id": 10
     }
   ],
   "posts": [

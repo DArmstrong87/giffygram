@@ -2,6 +2,8 @@ import {
   setDisplayMessageForm,
   setCurrentUser,
   setDisplayMessages,
+  getCurrentUser,
+  getUsers,
 } from "../data/provider.js";
 import { InboxNumbers } from "../friends/DirectMessage.js";
 const applicationElement = document.querySelector(".giffygram");
@@ -35,25 +37,29 @@ applicationElement.addEventListener("click", (event) => {
   }
 });
 export const NavBar = () => {
+  const user = getCurrentUser();
+  const foundUser = getUsers().find((currentUser) => {
+    return currentUser.id === user;
+  });
   let html = `
-          <nav class="navigation">
-        <div class="navigation__item navigation__icon">
-          <img src="./images/pb.png" alt="Giffygram icon" id="logo" />
-        </div>
-        <div class="navigation__item navigation__name" id="logo">Giffygram</div>
-        <div class="navigation__item navigation__search"></div>
-        <div class="navigation__item navigation__message">
-          <img
-            id="directMessageIcon"
-            src="./images/fountain-pen.svg"
-            alt="Direct message"
-          />
-          <div id="notification__count"class="notification__count">${InboxNumbers()}</div>
-        </div>
-        <div class="navigation__item navigation__logout">
-          <button id="logout" class="fakeLink">Logout</button>
-        </div>
-      </nav>
+    <nav class="navigation">
+    <div class="navigation__item navigation__icon">
+    <img src="./images/pb.png" alt="Giffygram icon" id="logo" />
+    </div>
+    <div class="navigation__item navigation__name" id="logo">Giffygram</div>
+    <div class="navigation__item navigation__search">Hi, ${foundUser.name}</div>
+    <div class="navigation__item navigation__message">
+    <img
+    id="directMessageIcon"
+    src="./images/fountain-pen.svg"
+    alt="Direct message"
+    />
+    <div id="notification__count"class="notification__count">${InboxNumbers()}</div>
+    </div>
+    <div class="navigation__item navigation__logout">
+    <button id="logout" class="fakeLink">Logout</button>
+    </div>
+    </nav>
     `;
   return html;
 };
