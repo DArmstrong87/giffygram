@@ -1,0 +1,15 @@
+.loginForm h1{
+    font-size: 100px;
+}
+#loginbuttonsdiv{
+    display: flex;
+    justify-content: flex-end;
+}
+.loginForm button{
+    border-radius: 12%;
+    font-size: 2rem;
+    margin: 2px;
+}
+.loginForm button:hover{
+    background-color: rgb(149, 227, 230);
+}

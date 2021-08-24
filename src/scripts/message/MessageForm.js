@@ -13,6 +13,7 @@ let selectedRecipient = "";
 document.addEventListener("click", (click) => {
   if (click.target.id === "directMessage__cancel") {
     setDisplayMessageForm(false);
+    selectedRecipient = "";
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
@@ -23,7 +24,6 @@ document.addEventListener("change", (event) => {
     selectedRecipient = parseInt(recipientId);
     console.log(selectedRecipient);
     setRecipientUser(selectedRecipient);
-    selectedRecipient = "";
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });

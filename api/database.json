@@ -136,7 +136,7 @@
       "userId": 2,
       "recipientId": 1,
       "text": "you amazing",
-      "read": true
+      "read": false
     },
     {
       "id": 4,
@@ -149,7 +149,7 @@
       "userId": 6,
       "recipientId": 1,
       "text": "ey gurl",
-      "read": false,
+      "read": true,
       "id": 5
     },
     {
@@ -158,6 +158,13 @@
       "text": "hey bob",
       "read": true,
       "id": 6
+    },
+    {
+      "userId": 2,
+      "recipientId": 6,
+      "text": "ey boi",
+      "read": false,
+      "id": 7
     }
   ],
   "follows": [
