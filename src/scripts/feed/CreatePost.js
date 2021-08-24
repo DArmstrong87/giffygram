@@ -1,20 +1,16 @@
-import { createNewPost, getCurrentUser, getPosts } from "../data/provider.js";
+import { createNewPost, getCurrentUser, getNewPostForm, setDisplayNewPostForm } from "../data/provider.js";
 
+const applicationElement = document.querySelector('.giffygram')
 document.addEventListener("click", (click) => {
   if (click.target.id === "miniMode") {
-    const container = document.getElementById("newPostContainer");
-    container.innerHTML = "";
-    container.innerHTML = newPostForm();
+    setDisplayNewPostForm(true)
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
 document.addEventListener("click", (click) => {
   if (click.target.name === "cancel-new-post") {
-    const container = document.getElementById("newPostContainer");
-    container.innerHTML = `
-            <div class="miniMode" id="miniMode">
-            Have a gif to post?
-            </div>
-            `;
+    setDisplayNewPostForm(false)
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
 document.addEventListener("click", (click) => {
@@ -43,31 +39,31 @@ document.addEventListener("click", (click) => {
       window.alert("Please fill in all fields");
     } else {
       createNewPost(dataToAPI);
+      setDisplayNewPostForm(false)
     }
-    const posts = getPosts();
-    console.log(posts);
   }
 });
 
 export const newPost = () => {
-  return `<section id="newPostContainer" >
+  const newPostForm = getNewPostForm()
+  if (newPostForm === false) {
+    return `<section id="newPostContainer" >
         <div class="miniMode" id="miniMode">
     Have a gif to post?
         </div>
     </section>
-    `;
-};
-
-export const newPostForm = () => {
-  return `
-    <section class="newPost">
-        <input class="newPost__input" type="text" name="post-title" placeholder="Title"></input><br>
-        <input class="newPost__input" type="text" name="post-image-url" placeholder="Image URL"></input>
-        <textarea class="newPost__description" name="post-description" placeholder="Tell us a story..."></textarea>
-        <div class="newPost__upload">
-        <button name="upload-post">Upload Post</button>
-        <button name="cancel-new-post">Cancel</button>
-        </div>
-    </section>
-    `;
-};
+    `
+  } else {
+    return `
+  <section class="newPost">
+      <input class="newPost__input" type="text" name="post-title" placeholder="Title"></input><br>
+      <input class="newPost__input" type="text" name="post-image-url" placeholder="Image URL"></input>
+      <textarea class="newPost__description" name="post-description" placeholder="Tell us a story..."></textarea>
+      <div class="newPost__upload">
+      <button name="upload-post">Upload Post</button>
+      <button name="cancel-new-post">Cancel</button>
+      </div>
+  </section>
+  `
+  }
+}
