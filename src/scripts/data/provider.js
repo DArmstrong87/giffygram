@@ -15,6 +15,7 @@ const applicationState = {
     displayCreateUser: false,
     displayMessageForm: false,
     selectedYear: 0,
+    displayNewPostForm: false
   },
 };
 
@@ -99,6 +100,9 @@ export const getSelectedUser = () => {
 export const getDisplayFavorites = () => {
   return applicationState.feed.displayFavorites;
 };
+export const getNewPostForm = () => {
+  return applicationState.feed.displayNewPostForm;
+};
 //SETTERS
 export const setDisplayCreateUser = (boolean) => {
   return (applicationState.feed.displayCreateUser = boolean);
@@ -123,6 +127,9 @@ export const setDisplayFavorites = (boolean) => {
 };
 export const setFilterChosenUser = (value) => {
   return (applicationState.feed.chosenUser = value);
+};
+export const setDisplayNewPostForm = (boolean) => {
+  return (applicationState.feed.displayNewPostForm = boolean);
 };
 // POST FUNCTIONS
 
