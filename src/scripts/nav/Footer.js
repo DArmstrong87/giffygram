@@ -1,12 +1,4 @@
-import {
-  getSelectedYear,
-  setYear,
-  getDisplayFavorites,
-  setDisplayFavorites,
-  setFilterChosenUser,
-  getSelectedUser,
-  getUsers,
-} from "../data/provider.js";
+import { getSelectedYear, setYear, getDisplayFavorites, setDisplayFavorites, setFilterChosenUser, getSelectedUser, getUsers, getPosts } from "../data/provider.js";
 
 document.addEventListener("change", (change) => {
   if (change.target.id === "select-year") {
@@ -26,8 +18,19 @@ document.addEventListener("change", (change) => {
 });
 
 const SelectYear = () => {
+  const posts = getPosts()
   const selectedYear = getSelectedYear();
   const lastFiveYears = [2021, 2020, 2019, 2018, 2017];
+  const allYears = []
+  for (const post of posts) {
+    const newDate = new Date(post.timestamp);
+    const fullYear = newDate.getFullYear()
+    allYears.push(fullYear)
+  }
+
+  const years = [...new Set(allYears)]
+  console.log(years)
+  
   let html = `<div class='footer__item'><select id="select-year">`;
 
   if (selectedYear === 0) {
@@ -35,6 +38,7 @@ const SelectYear = () => {
   } else {
     html += `<option value="year--0">All Posts</option>`;
   }
+
 
   lastFiveYears.map((year) => {
     if (year === selectedYear) {
@@ -57,23 +61,23 @@ const SelectUser = () => {
   if (selectedUser === null) {
     html += `<option>Choose a user...</option>
     ${users
-      .map((user) => {
-        return `<option value="select--${user.id}">${user.name}</option>`;
-      })
-      .join("")}
+        .map((user) => {
+          return `<option value="select--${user.id}">${user.name}</option>`;
+        })
+        .join("")}
     </select>
     </div>`;
   } else {
     html += `<option>Choose a user...</option>
     ${users
-      .map((user) => {
-        if (selectedUser === user.id) {
-          return `<option selected value="select--${user.id}">${user.name}</option>`;
-        } else {
-          return `<option value="select--${user.id}">${user.name}</option>`;
-        }
-      })
-      .join("")}
+        .map((user) => {
+          if (selectedUser === user.id) {
+            return `<option selected value="select--${user.id}">${user.name}</option>`;
+          } else {
+            return `<option value="select--${user.id}">${user.name}</option>`;
+          }
+        })
+        .join("")}
     </select>
     </div>`;
   }
