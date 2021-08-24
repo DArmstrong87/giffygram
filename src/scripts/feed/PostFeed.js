@@ -64,10 +64,10 @@ export const postFeed = () => {
   } else if (selectedYear > 0) {
     const selectedYear = getSelectedYear();
     const matchedYear = posts.filter((post)=>{
-        const postYear = newDate.getFullYear(post.timestamp)
+        const newDate = new Date(post.timestamp);
         return postYear === selectedYear
     })
-    const sortedPost = likedPost.sort((a, b) => b.timestamp - a.timestamp);
+    const sortedPost = matchedYear.sort((a, b) => b.timestamp - a.timestamp);
     html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
     return html
   } else if (selectedUser !== null) {
