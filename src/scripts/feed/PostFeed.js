@@ -1,4 +1,4 @@
-import { postsByYear } from "./PostsByYear.js";
+
 import {
   createLike,
   deleteLike,
@@ -11,8 +11,7 @@ import {
   getSelectedYear,
   getSelectedUser,
 } from "../data/provider.js";
-import { FavoritesFeed } from "./FavoritesFeed.js";
-import { UsersFeed } from "./PostsByUser.js";
+
 
 // Delete Post
 document.addEventListener("click", (click) => {
@@ -51,6 +50,7 @@ export const postFeed = () => {
   const likes = getLikes()
   const currentUser = getCurrentUser()
   let html = ""
+  //if display favorites is true then filters the post to make it display only liked post
   if (getDisplayFavorites()) {
     const likedPost = posts.filter((post)=>{
         const foundLike = likes.find((like)=> like.postId === post.id && like.userId === currentUser)
@@ -61,17 +61,25 @@ export const postFeed = () => {
     const sortedPost = likedPost.sort((a, b) => b.timestamp - a.timestamp);
     html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
     return html
+//if a year is selected then filters the post to make it display only post with the correct year
   } else if (selectedYear > 0) {
     const selectedYear = getSelectedYear();
     const matchedYear = posts.filter((post)=>{
         const newDate = new Date(post.timestamp);
+        const postYear = newDate.getFullYear(post.timestamp);
         return postYear === selectedYear
     })
     const sortedPost = matchedYear.sort((a, b) => b.timestamp - a.timestamp);
     html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
     return html
+// if a user is selected then it will filter post by selected user
   } else if (selectedUser !== null) {
-    return UsersFeed();
+    const selectedUserPost = posts.filter((post)=>{
+        return post.userId === selectedUser
+    })
+    const sortedPost = selectedUserPost.sort((a, b) => b.timestamp - a.timestamp);
+    html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
+    return html
   } else {
     const posts = getPosts();
     const sortedPost = posts.sort((a, b) => b.timestamp - a.timestamp);
