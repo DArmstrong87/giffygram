@@ -20,21 +20,15 @@ document.addEventListener("change", (change) => {
 const SelectYear = () => {
   const posts = getPosts()
   const selectedYear = getSelectedYear();
-  const lastFiveYears = [2021, 2020, 2019, 2018, 2017];
-  const allYears = []
-  for (const post of posts) {
-    const newDate = new Date(post.timestamp);
-    const fullYear = newDate.getFullYear()
-    allYears.push(fullYear)
+
+  const currentYear = new Date(Date.now()).getFullYear()
+  const lastFiveYears = []
+  for (let i=0; i<5; i++){
+    lastFiveYears.push(currentYear - i)
   }
 
-  const years = [...new Set(allYears)]
-  console.log(years.sort((a, b) => {
-    if (a > b) {
-      return -1
-    } else
-      return 1
-  }))
+    console.log(lastFiveYears)
+
 
   let html = `<div class='footer__item'><select id="select-year">`;
 
