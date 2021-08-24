@@ -1,15 +1,20 @@
-import { createNewPost, getCurrentUser, getNewPostForm, setDisplayNewPostForm } from "../data/provider.js";
+import {
+  createNewPost,
+  getCurrentUser,
+  getNewPostForm,
+  setDisplayNewPostForm,
+} from "../data/provider.js";
 
-const applicationElement = document.querySelector('.giffygram')
+const applicationElement = document.querySelector(".giffygram");
 document.addEventListener("click", (click) => {
   if (click.target.id === "miniMode") {
-    setDisplayNewPostForm(true)
+    setDisplayNewPostForm(true);
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
 document.addEventListener("click", (click) => {
   if (click.target.name === "cancel-new-post") {
-    setDisplayNewPostForm(false)
+    setDisplayNewPostForm(false);
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
@@ -39,20 +44,21 @@ document.addEventListener("click", (click) => {
       window.alert("Please fill in all fields");
     } else {
       createNewPost(dataToAPI);
-      setDisplayNewPostForm(false)
+      setDisplayNewPostForm(false);
     }
+    const posts = getPosts();
   }
 });
 
 export const newPost = () => {
-  const newPostForm = getNewPostForm()
+  const newPostForm = getNewPostForm();
   if (newPostForm === false) {
     return `<section id="newPostContainer" >
         <div class="miniMode" id="miniMode">
     Have a gif to post?
         </div>
     </section>
-    `
+    `;
   } else {
     return `
   <section class="newPost">
@@ -64,6 +70,6 @@ export const newPost = () => {
       <button name="cancel-new-post">Cancel</button>
       </div>
   </section>
-  `
+  `;
   }
-}
+};

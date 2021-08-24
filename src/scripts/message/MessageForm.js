@@ -22,7 +22,6 @@ document.addEventListener("change", (event) => {
   if (event.target.id === "select--recipient") {
     const [, recipientId] = event.target.value.split("--");
     selectedRecipient = parseInt(recipientId);
-    console.log(selectedRecipient);
     setRecipientUser(selectedRecipient);
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
@@ -47,7 +46,6 @@ document.addEventListener("click", (click) => {
       createDirectMessage(dataToAPI);
       setDisplayMessageForm(false);
       selectedRecipient = "";
-      console.log(selectedRecipient);
     }
   }
 });
