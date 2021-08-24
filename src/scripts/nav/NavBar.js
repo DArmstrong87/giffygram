@@ -47,7 +47,7 @@ export const NavBar = () => {
     <img src="./images/pb.png" alt="Giffygram icon" id="logo" />
     </div>
     <div class="navigation__item navigation__name" id="logo">Giffygram</div>
-    <div class="navigation__item navigation__search">Hi, ${foundUser.name}</div>
+    <div class="navigation__item navigation__user">Hi, ${foundUser.name}</div>
     <div class="navigation__item navigation__message">
     <img
     id="directMessageIcon"
