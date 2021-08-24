@@ -47,10 +47,29 @@ document.addEventListener("click", (click) => {
 export const postFeed = () => {
   const selectedYear = getSelectedYear();
   const selectedUser = getSelectedUser();
+  const posts = getPosts()
+  const likes = getLikes()
+  const currentUser = getCurrentUser()
+  let html = ""
   if (getDisplayFavorites()) {
-    return FavoritesFeed();
+    const likedPost = posts.filter((post)=>{
+        const foundLike = likes.find((like)=> like.postId === post.id && like.userId === currentUser)
+        if (foundLike !== undefined){
+            return post
+        }
+    });
+    const sortedPost = likedPost.sort((a, b) => b.timestamp - a.timestamp);
+    html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
+    return html
   } else if (selectedYear > 0) {
-    return postsByYear();
+    const selectedYear = getSelectedYear();
+    const matchedYear = posts.filter((post)=>{
+        const newDate = new Date(post.timestamp);
+        return postYear === selectedYear
+    })
+    const sortedPost = matchedYear.sort((a, b) => b.timestamp - a.timestamp);
+    html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
+    return html
   } else if (selectedUser !== null) {
     return UsersFeed();
   } else {
@@ -64,8 +83,8 @@ export const postFeed = () => {
       })
       .join("")}`;
 
-    return html;
-  }
+      return html;
+    }
 };
 
 const listPosts = (post) => {
