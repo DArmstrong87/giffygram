@@ -38,14 +38,14 @@ export const NavBar = () => {
   let html = `
           <nav class="navigation">
         <div class="navigation__item navigation__icon">
-          <img src="/images/pb.png" alt="Giffygram icon" id="logo" />
+          <img src="./images/pb.png" alt="Giffygram icon" id="logo" />
         </div>
         <div class="navigation__item navigation__name" id="logo">Giffygram</div>
         <div class="navigation__item navigation__search"></div>
         <div class="navigation__item navigation__message">
           <img
             id="directMessageIcon"
-            src="/images/fountain-pen.svg"
+            src="./images/fountain-pen.svg"
             alt="Direct message"
           />
           <div id="notification__count"class="notification__count">${InboxNumbers()}</div>
