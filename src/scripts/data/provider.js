@@ -1,3 +1,4 @@
+import { listPosts } from "../feed/PostFeed.js";
 const API = "http://localhost:8088";
 const applicationElement = document.querySelector(".giffygram");
 
@@ -45,10 +46,11 @@ export const fetchLikes = () => {
 };
 
 export const fetchMessages = () => {
-  return fetch(`${API}/messages`)
+  return fetch(`${API}/messages?_sort=read&_order=asc`)
     .then((response) => response.json())
     .then((message) => {
       applicationState.messages = message;
+      console.log(applicationState.messages)
     });
 };
 
@@ -67,6 +69,80 @@ export const getUsers = () => {
 export const getPosts = () => {
   return applicationState.posts.map((post) => ({ ...post }));
 };
+//super long getpost method that checks the state of the application and returns the array of filtered post
+export const getPostsState = () => {
+  const posts = applicationState.posts.map((user) => ({ ...user }))
+  
+  const selectedUser = applicationState.feed.chosenUser
+  const selectedYear = applicationState.feed.selectedYear;
+  const likes = applicationState.likes.map((user) => ({ ...user }))
+  const currentUser = (applicationState.currentUser)
+  let html = ""
+  //if display favorites is true then filters the post to make it display only liked post
+  if (applicationState.feed.displayFavorites) {
+    const likedPost = posts.filter((post)=>{
+        const foundLike = likes.find((like)=> like.postId === post.id && like.userId === currentUser)
+        if (foundLike !== undefined){
+            return post
+        }
+    });
+    if (likedPost.length > 0){
+        const sortedPost = likedPost.sort((a, b) => b.timestamp - a.timestamp);
+        html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
+        return html
+
+    }else{
+        html = `<h3>You have not liked any post! Click the Star on the Post to Like the post</h3>`
+        return html
+    }
+//if a year is selected then filters the post to make it display only post with the correct year
+  } else if (selectedYear > 0) {
+    
+    const matchedYear = posts.filter((post)=>{
+        const newDate = new Date(post.timestamp);
+        const postYear = newDate.getFullYear(post.timestamp);
+        return postYear === selectedYear
+    })
+    if (matchedYear.length > 0 ){
+        const sortedPost = matchedYear.sort((a, b) => b.timestamp - a.timestamp);
+        html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
+        return html
+
+    }else{
+        html = `<h3>There are no post for this Year!</h3>`
+        return html
+    }
+// if a user is selected then it will filter post by selected user
+  } else if (selectedUser !== null) {
+    
+    const users = applicationState.users.map((user) => ({ ...user }))
+    const foundUser = users.find((user)=> user.id === selectedUser)
+    const selectedUserPost = posts.filter((post)=>{
+        return post.userId === selectedUser
+    })
+    if (selectedUserPost.length > 0 ){
+        const sortedPost = selectedUserPost.sort((a, b) => b.timestamp - a.timestamp);
+        html = `${sortedPost.map((post)=> listPosts(post)).join("")}`
+        return html
+
+    }else{
+        html = `<h3>${foundUser.name} has not added any post yet!</h3>`
+        return html
+    }
+  } else {
+    const sortedPost = posts.sort((a, b) => b.timestamp - a.timestamp);
+    let html = "";
+
+    html += `${sortedPost
+      .map((post) => {
+        return listPosts(post);
+      })
+      .join("")}`;
+
+      return html;
+    }
+};
+//End of super long get post function
 export const getLikes = () => {
   return applicationState.likes.map((like) => ({ ...like }));
 };

@@ -116,7 +116,7 @@
     },
     {
       "userId": 1,
-      "postId": 1,
+      "postId": 7,
       "id": 17
     }
   ],
@@ -140,7 +140,7 @@
       "userId": 2,
       "recipientId": 1,
       "text": "you amazing",
-      "read": false
+      "read": true
     },
     {
       "id": 4,
