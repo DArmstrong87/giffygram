@@ -1,6 +1,6 @@
-#node_modules
-# *.json
+node_modules
+database.json
 .vscode
-#dist
+dist
 .DS_Store
 
