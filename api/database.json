@@ -130,7 +130,7 @@
       "userId": 6,
       "recipientId": 1,
       "text": "ey gurl",
-      "read": false,
+      "read": true,
       "id": 5
     },
     {

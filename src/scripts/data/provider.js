@@ -65,9 +65,11 @@ export const fetchFollows = () => {
 export const getUsers = () => {
   return applicationState.users.map((user) => ({ ...user }));
 };
+//super long getpost method that checks the state of the application and returns the array of filtered post
 export const getPosts = () => {
   return applicationState.posts.map((post) => ({ ...post }));
 };
+//End of super long get post function
 export const getLikes = () => {
   return applicationState.likes.map((like) => ({ ...like }));
 };
