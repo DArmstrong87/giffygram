@@ -18,6 +18,7 @@ const applicationState = {
     selectedYear: 0,
     displayNewPostForm: false,
     displayUserProfile: null,
+    displayUserProfile: 0,
   },
 };
 
@@ -31,7 +32,7 @@ export const fetchUsers = () => {
 };
 
 export const fetchPosts = () => {
-  if (applicationState.feed.displayUserProfile !== null) {
+  if (applicationState.feed.displayUserProfile > 0) {
     return fetch(
       `${API}/posts?userId=${applicationState.feed.displayUserProfile}`
     )
@@ -232,7 +233,6 @@ export const setDisplayNewPostForm = (boolean) => {
   return (applicationState.feed.displayNewPostForm = boolean);
 };
 export const setDisplayUserProfile = (num) => {
-  resetState();
   return (applicationState.feed.displayUserProfile = num);
 };
 // POST FUNCTIONS

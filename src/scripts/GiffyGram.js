@@ -7,20 +7,19 @@ import { DirectMessagesHtml } from "./friends/DirectMessage.js";
 import { FooterBar } from "./nav/Footer.js";
 import { UserProfile } from "./friends/UserProfile.js";
 
+
 export const GiffyGram = () => {
+  console.log(getDisplayUserProfile())
   if (getMessageState()) {
     return `<div>${NavBar()}</div>
                 <div>${DirectMessagesHtml()}</div>`;
-  }else if( getDisplayUserProfile()!==null){
+  } else if (getDisplayUserProfile() > 0) {
     return `<div>${NavBar()}</div>
-                <div>${UserProfile()}</div>`
-  } 
+                <section class="userProfile">${UserProfile()}</section>`
+  }
   else {
     return `<div>${NavBar()}</div>
         <div id="newMessageForm">${MessageForm()}</div>
-        <section class="userProfile">
-          ${UserProfile()}
-        </section>
         <div class="new-post-container">
         ${newPost()}</div>
         <section class="giffygram__feed">${postFeed()}</section>

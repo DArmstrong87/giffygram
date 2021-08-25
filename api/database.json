@@ -193,6 +193,11 @@
       "id": 1,
       "userId": 1,
       "followingId": 2
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "followingId": 2
     }
   ]
 }
