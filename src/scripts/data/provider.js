@@ -17,6 +17,7 @@ const applicationState = {
     displayMessageForm: false,
     selectedYear: 0,
     displayNewPostForm: false,
+    displayChosenUserProfile: false,
   },
 };
 
