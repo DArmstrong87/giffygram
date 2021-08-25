@@ -9,7 +9,6 @@ import { UserProfile } from "./friends/UserProfile.js";
 
 
 export const GiffyGram = () => {
-  console.log(getDisplayUserProfile())
   if (getMessageState()) {
     return `<div>${NavBar()}</div>
                 <div>${DirectMessagesHtml()}</div>`;
