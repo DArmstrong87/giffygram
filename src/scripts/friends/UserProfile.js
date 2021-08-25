@@ -6,6 +6,7 @@ export const UserProfile = () => {
         <div class='ProfilePic'>
             Add profile pic here.
         </div>
+        <div class='followUserButton'><button name="follow--$user.id">Follow</button></div>
         <div class='userFollowers'>
             List the user's followers here.
         </div>

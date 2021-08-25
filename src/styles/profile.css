@@ -27,4 +27,15 @@
     flex-direction: column;
     text-align: center;
     margin-top: 15px;
+    justify-content: center;
+}
+
+.followUserButton{
+    max-width: fit-content;
+    margin:auto;
+}
+.followUserButton button{
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 2px;
 }

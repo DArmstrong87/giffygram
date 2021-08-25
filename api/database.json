@@ -61,14 +61,14 @@
       "name": "jo",
       "password": "jo",
       "id": 9,
-      "profilePicUrl": ""
+      "profilePicUrl": "https://i1.sndcdn.com/artworks-000088042446-ka80cp-t500x500.jpg"
     },
     {
       "email": "jimmy@jimmy.com",
       "name": "jimmy",
       "password": "jimmy",
       "id": 10,
-      "profilePicUrl": ""
+      "profilePicUrl": "https://www.mediavillage.com/media/ckeditor_uploaded/2015/12/01/south-park-jimmy-super-school-news.jpg"
     }
   ],
   "posts": [
