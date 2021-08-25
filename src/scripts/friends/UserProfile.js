@@ -21,6 +21,14 @@ applicationElement.addEventListener("click", (click) => {
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
+applicationElement.addEventListener("change", (click) => {
+  if (click.target.id === "ListOfFollows") {
+    const [, foundUserId] = click.target.value.split("--");
+    const chosenUser = parseInt(foundUserId);
+    setDisplayUserProfile(chosenUser);
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
 
 applicationElement.addEventListener("click", (click) => {
   if (click.target.id.startsWith("follow")) {
@@ -118,14 +126,15 @@ const Followers = () => {
   });
   if (foundUserFollows) {
     return `
-    <select class='followersList'>
+    <select class='followersList' id="ListOfFollows">
+    <option>See followers</option>
         ${follows
           .map((follow) => {
             if (follow.followingId === userProfile) {
               const foundUser = users.find((user) => {
                 return follow.userId === user.id;
               });
-              return `<option>${foundUser.name}</option>`;
+              return `<option value="user--${foundUser.id}">${foundUser.name}</option>`;
             }
           })
           .join("")}
@@ -145,14 +154,15 @@ const Following = () => {
   });
   if (foundUserFollowing) {
     return `
-    <select class='followersList'>
+    <select class='followersList' id="ListOfFollows">
+    <option>See following</option>
         ${follows
           .map((follow) => {
             if (follow.userId === userProfile) {
               const foundUser = users.find((user) => {
                 return follow.followingId === user.id;
               });
-              return `<option>${foundUser.name}</option>`;
+              return `<option value="user--${foundUser.id}">${foundUser.name}</option>`;
             }
           })
           .join("")}
