@@ -119,6 +119,14 @@
       "description": "qwd",
       "timestamp": 1629919700508,
       "id": 8
+    },
+    {
+      "userId": 6,
+      "title": "Nice.",
+      "imageUrl": "https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif?cid=ecf05e47t8lq5z6rw4z6mo15tbvxqy7ms09g9otgq42o9c53&rid=giphy.gif&ct=g",
+      "description": "tfw you workin on a group project and you still don't really know how it works but you have kick ass teammates that know what they're doin",
+      "timestamp": 1629922500001,
+      "id": 9
     }
   ],
   "likes": [
@@ -136,6 +144,21 @@
       "userId": 1,
       "postId": 7,
       "id": 17
+    },
+    {
+      "userId": 6,
+      "postId": 4,
+      "id": 18
+    },
+    {
+      "userId": 6,
+      "postId": 6,
+      "id": 19
+    },
+    {
+      "userId": 6,
+      "postId": 1,
+      "id": 20
     }
   ],
   "messages": [
@@ -234,11 +257,6 @@
       "id": 3
     },
     {
-      "followingId": 2,
-      "userId": 6,
-      "id": 4
-    },
-    {
       "followingId": 1,
       "userId": 6,
       "id": 5
@@ -262,6 +280,26 @@
       "followingId": 2,
       "userId": 10,
       "id": 9
+    },
+    {
+      "followingId": 10,
+      "userId": 6,
+      "id": 10
+    },
+    {
+      "followingId": 6,
+      "userId": 2,
+      "id": 11
+    },
+    {
+      "followingId": 2,
+      "userId": 6,
+      "id": 12
+    },
+    {
+      "followingId": 3,
+      "userId": 6,
+      "id": 13
     }
   ]
 }
