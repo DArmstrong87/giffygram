@@ -17,7 +17,7 @@ const applicationState = {
     displayMessageForm: false,
     selectedYear: 0,
     displayNewPostForm: false,
-    displayUserProfile: null
+    displayUserProfile: 0
   },
 };
 
@@ -31,13 +31,13 @@ export const fetchUsers = () => {
 };
 
 export const fetchPosts = () => {
-  if (applicationState.feed.displayUserProfile !== null){
+  if (applicationState.feed.displayUserProfile > 0) {
     return fetch(`${API}/posts?userId=${applicationState.feed.displayUserProfile}`)
-    .then((response) => response.json())
-    .then((post) => {
-      applicationState.posts = post;
-    });
-  }else{
+      .then((response) => response.json())
+      .then((post) => {
+        applicationState.posts = post;
+      });
+  } else {
     return fetch(`${API}/posts`)
       .then((response) => response.json())
       .then((post) => {
@@ -71,7 +71,7 @@ export const fetchFollows = () => {
     });
 };
 //Reset State Function
-const resetState = ()=>{
+const resetState = () => {
   applicationState.feed.chosenUser = null
   applicationState.feed.displayFavorites = null
   applicationState.feed.displayMessages = false
@@ -199,7 +199,7 @@ export const getDisplayFavorites = () => {
 export const getNewPostForm = () => {
   return applicationState.feed.displayNewPostForm;
 };
-export const getDisplayUserProfile = () =>{
+export const getDisplayUserProfile = () => {
   return applicationState.feed.displayUserProfile;
 }
 //SETTERS
@@ -230,8 +230,7 @@ export const setFilterChosenUser = (value) => {
 export const setDisplayNewPostForm = (boolean) => {
   return (applicationState.feed.displayNewPostForm = boolean);
 };
-export const setDisplayUserProfile = (num)=>{
-  // resetState()
+export const setDisplayUserProfile = (num) => {
   return (applicationState.feed.displayUserProfile = num)
 }
 // POST FUNCTIONS

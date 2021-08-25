@@ -1,5 +1,16 @@
-import { getDisplayUserProfile, getFollows, getPosts, getUsers, setDisplayUserProfile } from "../data/provider.js";
+import { getDisplayUserProfile, getFollows, getPosts, getUsers, setDisplayNewPostForm, setDisplayUserProfile } from "../data/provider.js";
 import { listPosts } from "../feed/PostFeed.js";
+
+const applicationElement = document.querySelector(".giffygram")
+applicationElement.addEventListener("click", (click) => {
+    if (click.target.id.startsWith("user")) {
+        // click.preventDefault()
+        const [, foundUserId] = click.target.id.split("--");
+        const chosenUser = parseInt(foundUserId);
+        setDisplayUserProfile(chosenUser)
+        applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+    }
+});
 
 export const UserProfile = () => {
     const posts = getPosts()
@@ -74,12 +85,3 @@ const Following = () => {
     `
 }
 
-document.addEventListener("click", (click) => {
-    if (click.target.id.startsWith("user")) {
-        const [, foundUserId] = click.target.id.split("--");
-        const chosenUser = parseInt(foundUserId);
-        setDisplayUserProfile(chosenUser);
-        const applicationElement = document.querySelector('.giffygram')
-        applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
-    }
-});
