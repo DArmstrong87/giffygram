@@ -4,61 +4,71 @@
       "id": 1,
       "name": "PermafrostBois",
       "email": "permafrost@bois.com",
-      "password": "permafrost"
+      "password": "permafrost",
+      "profilePicUrl": "https://i0.wp.com/cdn.ipeeworld.com/wp-content/uploads/2021/06/funny-cat.jpeg"
     },
     {
       "id": 2,
       "name": "Bob",
       "email": "bob@bob.com",
-      "password": "bob"
+      "password": "bob",
+      "profilePicUrl": "https://i.pinimg.com/originals/6b/e8/6e/6be86ee43bb016e3e04bdadbb121871f.jpg"
     },
     {
       "email": "josh@josh.com",
       "name": "Josh",
       "password": "1",
-      "id": 3
+      "id": 3,
+      "profilePicUrl": "https://www.sidomexentertainment.com/wp-content/uploads/2021/02/Funny-head.jpg"
     },
     {
       "email": "josh1@josh.com",
       "name": "Josh1",
       "password": "123",
-      "id": 4
+      "id": 4,
+      "profilePicUrl": ""
     },
     {
       "email": "danny@danny.com",
       "name": "Danny Bwai",
       "password": "danny",
-      "id": 5
+      "id": 5,
+      "profilePicUrl": "https://i.imgur.com/O9Wmyek.jpeg"
     },
     {
       "email": "travis@travis.com",
       "name": "travis",
       "password": "travis",
-      "id": 6
+      "id": 6,
+      "profilePicUrl": "https://www.franklinparkartscenter.org/fof23/wp-content/uploads/2021/05/Bob-Ross-REV-e1620831265156.jpg"
     },
     {
       "email": "steve@steve.com",
       "name": "Steve",
       "password": "123",
-      "id": 7
+      "id": 7,
+      "profilePicUrl": "https://i.natgeofe.com/n/ccfd8dc0-00d1-4337-adb8-52b0366e298e/82590_2x3.jpg"
     },
     {
       "email": "timmy@timmy.com",
       "name": "timmy",
       "password": "timmy",
-      "id": 8
+      "id": 8,
+      "profilePicUrl": "https://cdn.mos.cms.futurecdn.net/gVQsMtYSrHx6UXjUUkCi5V-1200-80.jpg"
     },
     {
       "email": "jo@jo.com",
       "name": "jo",
       "password": "jo",
-      "id": 9
+      "id": 9,
+      "profilePicUrl": ""
     },
     {
       "email": "jimmy@jimmy.com",
       "name": "jimmy",
       "password": "jimmy",
-      "id": 10
+      "id": 10,
+      "profilePicUrl": ""
     }
   ],
   "posts": [

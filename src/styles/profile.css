@@ -21,3 +21,10 @@
 .loginForm button:hover{
     background-color: rgb(149, 227, 230);
 }
+
+.userProfile {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 15px;
+}

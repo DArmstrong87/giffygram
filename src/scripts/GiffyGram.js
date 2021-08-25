@@ -5,6 +5,7 @@ import { postFeed } from "./feed/PostFeed.js";
 import { getMessageState } from "./data/provider.js";
 import { DirectMessagesHtml } from "./friends/DirectMessage.js";
 import { FooterBar } from "./nav/Footer.js";
+import { UserProfile } from "./friends/UserProfile.js";
 
 export const GiffyGram = () => {
   if (getMessageState()) {
@@ -13,6 +14,9 @@ export const GiffyGram = () => {
   } else {
     return `<div>${NavBar()}</div>
         <div id="newMessageForm">${MessageForm()}</div>
+        <section class="userProfile">
+          ${UserProfile()}
+        </section>
         <div class="new-post-container">
         ${newPost()}</div>
         <section class="giffygram__feed">${postFeed()}</section>
