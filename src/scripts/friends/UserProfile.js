@@ -82,6 +82,7 @@ export const UserProfile = () => {
     return user.id === userProfile;
   });
   return `
+  <article class='userProfile'>
         <h2>${user.name}</h2>
         <div class='profilePic'>
             <img src=${user.profilePicUrl}>
@@ -96,15 +97,15 @@ export const UserProfile = () => {
         <h3>${user.name} is Following:</h3>
             ${Following()}
         </div>
-        <div class='userPosts'>
+       
         <h3>${user.name}'s Posts</h3>
+    </article>
         <hr class="lineBreak"></hr>
             ${posts
               .map((post) => {
                 return listPosts(post);
               })
               .join("")}
-        </div>
     `;
 };
 
