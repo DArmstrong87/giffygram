@@ -27,11 +27,11 @@ export const UserProfile = () => {
         </div>
         <div class='followUserButton'><button name="follow--$user.id">Follow</button></div>
         <div class='userFollowersDiv'>
-            <h3>Bob's Followers</h3>
+            <h3>${user.name}'s Followers</h3>
             ${Followers()}
         </div>
         <div class='userFollowing'>
-        <h3>Bob is Following:</h3>
+        <h3>${user.name} is Following:</h3>
             ${Following()}
         </div>
         <div class='userPosts'>
