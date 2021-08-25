@@ -147,7 +147,7 @@ export const getPostsState = () => {
       html = `${sortedPost.map((post) => listPosts(post)).join("")}`;
       return html;
     } else {
-      html = `<h3>${foundUser.name} has not added any post yet!</h3>`;
+      html = `<h3 class="noPosts">${foundUser.name} has not added any posts yet.<br> Very sad. 😥</h3>`;
       return html;
     }
   } else {

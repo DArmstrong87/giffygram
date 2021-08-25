@@ -4,6 +4,7 @@ document.addEventListener("change", (change) => {
   if (change.target.id === "select-year") {
     const [, year] = change.target.value.split("--");
     setYear(parseInt(year));
+    setFilterChosenUser(null);
     const applicationElement = document.querySelector(".giffygram");
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
@@ -12,6 +13,7 @@ document.addEventListener("change", (change) => {
   if (change.target.id === "select-user") {
     const [, user] = change.target.value.split("--");
     setFilterChosenUser(parseInt(user));
+    setYear(0);
     const applicationElement = document.querySelector(".giffygram");
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
