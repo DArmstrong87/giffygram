@@ -1,3 +1,4 @@
+import { setDisplayUserProfile } from "../data/provider.js";
 
 export const UserProfile = () => {
     return `
@@ -18,7 +19,6 @@ export const UserProfile = () => {
     `
 }
 
-import { setDisplayUserProfile } from "../data/provider.js";
 document.addEventListener("click", (click) => {
     if (click.target.id.startsWith("user")) {
         const [, foundUserId] = click.target.id.split("--");
