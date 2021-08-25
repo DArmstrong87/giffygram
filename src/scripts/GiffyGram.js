@@ -2,7 +2,7 @@ import { NavBar } from "./nav/NavBar.js";
 import { MessageForm } from "./message/MessageForm.js";
 import { newPost } from "./feed/CreatePost.js";
 import { postFeed } from "./feed/PostFeed.js";
-import { getMessageState } from "./data/provider.js";
+import { getDisplayUserProfile, getMessageState } from "./data/provider.js";
 import { DirectMessagesHtml } from "./friends/DirectMessage.js";
 import { FooterBar } from "./nav/Footer.js";
 import { UserProfile } from "./friends/UserProfile.js";
@@ -11,7 +11,11 @@ export const GiffyGram = () => {
   if (getMessageState()) {
     return `<div>${NavBar()}</div>
                 <div>${DirectMessagesHtml()}</div>`;
-  } else {
+  }else if( getDisplayUserProfile()!==null){
+    return `<div>${NavBar()}</div>
+                <div>${UserProfile()}</div>`
+  } 
+  else {
     return `<div>${NavBar()}</div>
         <div id="newMessageForm">${MessageForm()}</div>
         <section class="userProfile">

@@ -17,6 +17,7 @@ const applicationState = {
     displayMessageForm: false,
     selectedYear: 0,
     displayNewPostForm: false,
+    displayUserProfile: null
   },
 };
 
@@ -30,11 +31,20 @@ export const fetchUsers = () => {
 };
 
 export const fetchPosts = () => {
-  return fetch(`${API}/posts`)
+  if (applicationState.feed.displayUserProfile !== null){
+    return fetch(`${API}/posts?userId=${applicationState.feed.displayUserProfile}`)
     .then((response) => response.json())
     .then((post) => {
       applicationState.posts = post;
     });
+  }else{
+    return fetch(`${API}/posts`)
+      .then((response) => response.json())
+      .then((post) => {
+        applicationState.posts = post;
+      });
+
+  }
 };
 
 export const fetchLikes = () => {
@@ -60,7 +70,18 @@ export const fetchFollows = () => {
       applicationState.follows = follow;
     });
 };
-
+//Reset State Function
+const resetState = ()=>{
+  applicationState.feed.chosenUser = null
+  applicationState.feed.displayFavorites = null
+  applicationState.feed.displayMessages = false
+  applicationState.feed.displayCreateUser = false
+  applicationState.feed.displayMessageForm = false
+  applicationState.feed.selectedYear = 0
+  applicationState.feed.displayNewPostForm = false
+  applicationState.feed.displayUserProfile = null
+}
+//End of Reset State Function
 // Getters
 export const getUsers = () => {
   return applicationState.users.map((user) => ({ ...user }));
@@ -141,6 +162,7 @@ export const getPostsState = () => {
   }
 };
 //End of super long get post function
+
 export const getLikes = () => {
   return applicationState.likes.map((like) => ({ ...like }));
 };
@@ -177,6 +199,9 @@ export const getDisplayFavorites = () => {
 export const getNewPostForm = () => {
   return applicationState.feed.displayNewPostForm;
 };
+export const getDisplayUserProfile = () =>{
+  return applicationState.feed.displayUserProfile;
+}
 //SETTERS
 export const setDisplayCreateUser = (boolean) => {
   return (applicationState.feed.displayCreateUser = boolean);
@@ -205,6 +230,10 @@ export const setFilterChosenUser = (value) => {
 export const setDisplayNewPostForm = (boolean) => {
   return (applicationState.feed.displayNewPostForm = boolean);
 };
+export const setDisplayUserProfile = (num)=>{
+  resetState()
+  return (applicationState.feed.displayUserProfile = num)
+}
 // POST FUNCTIONS
 
 export const postCreatedUser = (object) => {

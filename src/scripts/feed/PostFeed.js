@@ -1,4 +1,3 @@
-
 import {
   createLike,
   deleteLike,
@@ -11,7 +10,6 @@ import {
   getSelectedUser,
   getPostsState,
 } from "../data/provider.js";
-
 
 // Delete Post
 document.addEventListener("click", (click) => {
@@ -44,7 +42,7 @@ document.addEventListener("click", (click) => {
   }
 });
 export const postFeed = () => {
-  return getPostsState()
+  return getPostsState();
 };
 
 export const listPosts = (post) => {
@@ -69,7 +67,7 @@ export const listPosts = (post) => {
         </div>
         <div class="post__tagline">${post.description}</div>
         <div class="post__tagline">
-            Posted by <b><a href="">${foundUser.name}</a></b> on ${date}
+            Posted by <b><a href="" id="user--${foundUser.id}">${foundUser.name}</a></b> on ${date}
         </div>
         <div class="post__actions">`;
 
