@@ -28,7 +28,12 @@
   padding-top: 0.1rem;
   margin-left: 1rem;
 }
-
+.navigation__user a {
+  text-decoration: none;
+}
+.navigation__user a:hover {
+  color: goldenrod;
+}
 .navigation__icon > img {
   height: 2rem;
 }

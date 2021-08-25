@@ -112,7 +112,11 @@ const Followers = () => {
   const follows = getFollows();
   const userProfile = getDisplayUserProfile();
   const users = getUsers();
-  return `
+  const foundUserFollows = !!follows.find((follow) => {
+    return follow.followingId === userProfile;
+  });
+  if (foundUserFollows) {
+    return `
     <select class='followersList'>
         ${follows
           .map((follow) => {
@@ -124,20 +128,28 @@ const Followers = () => {
             }
           })
           .join("")}
+          
     </select>
     `;
+  } else {
+    return `<h3> User has no followers</h3>`;
+  }
 };
 const Following = () => {
   const follows = getFollows();
   const userProfile = getDisplayUserProfile();
   const users = getUsers();
-  return `
+  const foundUserFollowing = !!follows.find((follow) => {
+    return follow.userId === userProfile;
+  });
+  if (foundUserFollowing) {
+    return `
     <select class='followersList'>
         ${follows
           .map((follow) => {
-            if (follow.followingId === userProfile) {
+            if (follow.userId === userProfile) {
               const foundUser = users.find((user) => {
-                return follow.userId === user.id;
+                return follow.followingId === user.id;
               });
               return `<option>${foundUser.name}</option>`;
             }
@@ -145,4 +157,7 @@ const Following = () => {
           .join("")}
     </select>
     `;
+  } else {
+    return `<h3> User is not following anyone ;(</h3>`;
+  }
 };
