@@ -11,16 +11,13 @@ export const GiffyGram = () => {
   if (getMessageState()) {
     return `<div>${NavBar()}</div>
                 <div>${DirectMessagesHtml()}</div>`;
-  }else if( getDisplayUserProfile()!==null){
+  }else if( getDisplayUserProfile().typeOf(number)){
     return `<div>${NavBar()}</div>
-                <div>${UserProfile()}</div>`
+                <section class="userProfile">${UserProfile()}</section>`
   } 
   else {
     return `<div>${NavBar()}</div>
         <div id="newMessageForm">${MessageForm()}</div>
-        <section class="userProfile">
-          ${UserProfile()}
-        </section>
         <div class="new-post-container">
         ${newPost()}</div>
         <section class="giffygram__feed">${postFeed()}</section>

@@ -64,7 +64,7 @@ export const fetchMessages = () => {
 };
 
 export const fetchFollows = () => {
-  return fetch(`${API}/posts`)
+  return fetch(`${API}/follows`)
     .then((response) => response.json())
     .then((follow) => {
       applicationState.follows = follow;
@@ -231,7 +231,7 @@ export const setDisplayNewPostForm = (boolean) => {
   return (applicationState.feed.displayNewPostForm = boolean);
 };
 export const setDisplayUserProfile = (num)=>{
-  resetState()
+  // resetState()
   return (applicationState.feed.displayUserProfile = num)
 }
 // POST FUNCTIONS
