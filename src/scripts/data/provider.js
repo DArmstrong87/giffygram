@@ -17,7 +17,8 @@ const applicationState = {
     displayMessageForm: false,
     selectedYear: 0,
     displayNewPostForm: false,
-    displayUserProfile: 0
+    displayUserProfile: null,
+    displayUserProfile: 0,
   },
 };
 
@@ -32,7 +33,9 @@ export const fetchUsers = () => {
 
 export const fetchPosts = () => {
   if (applicationState.feed.displayUserProfile > 0) {
-    return fetch(`${API}/posts?userId=${applicationState.feed.displayUserProfile}`)
+    return fetch(
+      `${API}/posts?userId=${applicationState.feed.displayUserProfile}`
+    )
       .then((response) => response.json())
       .then((post) => {
         applicationState.posts = post;
@@ -43,7 +46,6 @@ export const fetchPosts = () => {
       .then((post) => {
         applicationState.posts = post;
       });
-
   }
 };
 
@@ -72,15 +74,15 @@ export const fetchFollows = () => {
 };
 //Reset State Function
 const resetState = () => {
-  applicationState.feed.chosenUser = null
-  applicationState.feed.displayFavorites = null
-  applicationState.feed.displayMessages = false
-  applicationState.feed.displayCreateUser = false
-  applicationState.feed.displayMessageForm = false
-  applicationState.feed.selectedYear = 0
-  applicationState.feed.displayNewPostForm = false
-  applicationState.feed.displayUserProfile = null
-}
+  applicationState.feed.chosenUser = null;
+  applicationState.feed.displayFavorites = null;
+  applicationState.feed.displayMessages = false;
+  applicationState.feed.displayCreateUser = false;
+  applicationState.feed.displayMessageForm = false;
+  applicationState.feed.selectedYear = 0;
+  applicationState.feed.displayNewPostForm = false;
+  applicationState.feed.displayUserProfile = null;
+};
 //End of Reset State Function
 // Getters
 export const getUsers = () => {
@@ -201,7 +203,7 @@ export const getNewPostForm = () => {
 };
 export const getDisplayUserProfile = () => {
   return applicationState.feed.displayUserProfile;
-}
+};
 //SETTERS
 export const setDisplayCreateUser = (boolean) => {
   return (applicationState.feed.displayCreateUser = boolean);
@@ -231,8 +233,8 @@ export const setDisplayNewPostForm = (boolean) => {
   return (applicationState.feed.displayNewPostForm = boolean);
 };
 export const setDisplayUserProfile = (num) => {
-  return (applicationState.feed.displayUserProfile = num)
-}
+  return (applicationState.feed.displayUserProfile = num);
+};
 // POST FUNCTIONS
 
 export const postCreatedUser = (object) => {
@@ -293,6 +295,21 @@ export const createLike = (object) => {
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
+export const createFollow = (object) => {
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(object),
+  };
+
+  return fetch(`${API}/follows`, fetchOptions)
+    .then((response) => response.json())
+    .then(() => {
+      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+    });
+};
 
 // Delete Functions
 export const deletePost = (id) => {
@@ -302,6 +319,11 @@ export const deletePost = (id) => {
 };
 export const deleteLike = (id) => {
   return fetch(`${API}/likes/${id}`, { method: "DELETE" }).then(() => {
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  });
+};
+export const deleteFollow = (id) => {
+  return fetch(`${API}/follows/${id}`, { method: "DELETE" }).then(() => {
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   });
 };

@@ -7,28 +7,30 @@ import {
   setYear,
   setFilterChosenUser,
   setDisplayFavorites,
+  setDisplayUserProfile,
 } from "../data/provider.js";
 import { InboxNumbers } from "../friends/DirectMessage.js";
 const applicationElement = document.querySelector(".giffygram");
 
-document.addEventListener("click", (click) => {
+applicationElement.addEventListener("click", (click) => {
   if (click.target.id === "directMessageIcon") {
     setDisplayMessageForm(true);
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
 
-document.addEventListener("click", (click) => {
+applicationElement.addEventListener("click", (click) => {
   if (click.target.id === "logo") {
     setDisplayMessageForm(false);
     setDisplayMessages(false);
     setYear(0);
     setFilterChosenUser(null);
     setDisplayFavorites(false);
+    setDisplayUserProfile(0);
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
-document.addEventListener("click", (click) => {
+applicationElement.addEventListener("click", (click) => {
   if (click.target.id === "logout") {
     let user = {};
     setCurrentUser(user);
