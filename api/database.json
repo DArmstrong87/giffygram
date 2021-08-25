@@ -111,6 +111,14 @@
       "description": "Mike fisher scores in triple OT!",
       "timestamp": 1629598105984,
       "id": 7
+    },
+    {
+      "userId": 10,
+      "title": "asdas",
+      "imageUrl": "https://media.giphy.com/media/TPMzh2oTF5rNK/giphy-downsized-large.gif?cid=ecf05e47asby75wl2ug3dbk12bdjeltyyctb5rwhnqx6pdl8&rid=giphy-downsized-large.gif&ct=g",
+      "description": "qwd",
+      "timestamp": 1629919700508,
+      "id": 8
     }
   ],
   "likes": [
@@ -224,6 +232,36 @@
       "followingId": 5,
       "userId": 6,
       "id": 3
+    },
+    {
+      "followingId": 2,
+      "userId": 6,
+      "id": 4
+    },
+    {
+      "followingId": 1,
+      "userId": 6,
+      "id": 5
+    },
+    {
+      "followingId": 5,
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "followingId": 1,
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "followingId": 5,
+      "userId": 10,
+      "id": 8
+    },
+    {
+      "followingId": 2,
+      "userId": 10,
+      "id": 9
     }
   ]
 }
