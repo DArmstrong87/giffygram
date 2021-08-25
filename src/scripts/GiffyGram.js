@@ -15,7 +15,7 @@ export const GiffyGram = () => {
                 <div>${DirectMessagesHtml()}</div>`;
   } else if (getDisplayUserProfile() > 0) {
     return `<div>${NavBar()}</div>
-                <section class="userProfile">${UserProfile()}</section>`
+                <section class="giffygram__feed">${UserProfile()}</section>`
   }
   else {
     return `<div>${NavBar()}</div>
