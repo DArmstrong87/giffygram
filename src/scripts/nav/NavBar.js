@@ -34,6 +34,7 @@ applicationElement.addEventListener("click", (click) => {
   if (click.target.id === "logout") {
     let user = {};
     setCurrentUser(user);
+    setDisplayUserProfile(0);
     localStorage.clear();
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
