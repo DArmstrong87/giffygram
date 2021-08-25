@@ -17,7 +17,7 @@ const applicationState = {
     displayMessageForm: false,
     selectedYear: 0,
     displayNewPostForm: false,
-    displayUserProfile: null
+    displayUserProfile: null,
   },
 };
 
@@ -31,19 +31,20 @@ export const fetchUsers = () => {
 };
 
 export const fetchPosts = () => {
-  if (applicationState.feed.displayUserProfile !== null){
-    return fetch(`${API}/posts?userId=${applicationState.feed.displayUserProfile}`)
-    .then((response) => response.json())
-    .then((post) => {
-      applicationState.posts = post;
-    });
-  }else{
+  if (applicationState.feed.displayUserProfile !== null) {
+    return fetch(
+      `${API}/posts?userId=${applicationState.feed.displayUserProfile}`
+    )
+      .then((response) => response.json())
+      .then((post) => {
+        applicationState.posts = post;
+      });
+  } else {
     return fetch(`${API}/posts`)
       .then((response) => response.json())
       .then((post) => {
         applicationState.posts = post;
       });
-
   }
 };
 
@@ -64,23 +65,23 @@ export const fetchMessages = () => {
 };
 
 export const fetchFollows = () => {
-  return fetch(`${API}/posts`)
+  return fetch(`${API}/follows`)
     .then((response) => response.json())
     .then((follow) => {
       applicationState.follows = follow;
     });
 };
 //Reset State Function
-const resetState = ()=>{
-  applicationState.feed.chosenUser = null
-  applicationState.feed.displayFavorites = null
-  applicationState.feed.displayMessages = false
-  applicationState.feed.displayCreateUser = false
-  applicationState.feed.displayMessageForm = false
-  applicationState.feed.selectedYear = 0
-  applicationState.feed.displayNewPostForm = false
-  applicationState.feed.displayUserProfile = null
-}
+const resetState = () => {
+  applicationState.feed.chosenUser = null;
+  applicationState.feed.displayFavorites = null;
+  applicationState.feed.displayMessages = false;
+  applicationState.feed.displayCreateUser = false;
+  applicationState.feed.displayMessageForm = false;
+  applicationState.feed.selectedYear = 0;
+  applicationState.feed.displayNewPostForm = false;
+  applicationState.feed.displayUserProfile = null;
+};
 //End of Reset State Function
 // Getters
 export const getUsers = () => {
@@ -199,9 +200,9 @@ export const getDisplayFavorites = () => {
 export const getNewPostForm = () => {
   return applicationState.feed.displayNewPostForm;
 };
-export const getDisplayUserProfile = () =>{
+export const getDisplayUserProfile = () => {
   return applicationState.feed.displayUserProfile;
-}
+};
 //SETTERS
 export const setDisplayCreateUser = (boolean) => {
   return (applicationState.feed.displayCreateUser = boolean);
@@ -230,10 +231,10 @@ export const setFilterChosenUser = (value) => {
 export const setDisplayNewPostForm = (boolean) => {
   return (applicationState.feed.displayNewPostForm = boolean);
 };
-export const setDisplayUserProfile = (num)=>{
-  resetState()
-  return (applicationState.feed.displayUserProfile = num)
-}
+export const setDisplayUserProfile = (num) => {
+  resetState();
+  return (applicationState.feed.displayUserProfile = num);
+};
 // POST FUNCTIONS
 
 export const postCreatedUser = (object) => {
@@ -294,6 +295,21 @@ export const createLike = (object) => {
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
+export const createFollow = (object) => {
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(object),
+  };
+
+  return fetch(`${API}/follows`, fetchOptions)
+    .then((response) => response.json())
+    .then(() => {
+      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+    });
+};
 
 // Delete Functions
 export const deletePost = (id) => {
@@ -303,6 +319,11 @@ export const deletePost = (id) => {
 };
 export const deleteLike = (id) => {
   return fetch(`${API}/likes/${id}`, { method: "DELETE" }).then(() => {
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  });
+};
+export const deleteFollow = (id) => {
+  return fetch(`${API}/follows/${id}`, { method: "DELETE" }).then(() => {
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   });
 };

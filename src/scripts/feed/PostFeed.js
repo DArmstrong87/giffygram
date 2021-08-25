@@ -67,7 +67,7 @@ export const listPosts = (post) => {
         </div>
         <div class="post__tagline">${post.description}</div>
         <div class="post__tagline">
-            Posted by <b><a href="" id="user--${foundUser.id}">${foundUser.name}</a></b> on ${date}
+            Posted by <b><a href="#" id="user--${foundUser.id}">${foundUser.name}</a></b> on ${date}
         </div>
         <div class="post__actions">`;
 
