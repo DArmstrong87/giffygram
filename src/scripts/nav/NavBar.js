@@ -55,7 +55,7 @@ export const NavBar = () => {
     <div class="navigation__item navigation__name" id="logo">Giffygram</div>
     <div class="navigation__item navigation__user" id="user--${
       foundUser.id
-    }>Hi, ${foundUser.name}</div>
+    }">Hi, ${foundUser.name}</div>
     <div class="navigation__item navigation__message">
     <img
     id="directMessageIcon"
