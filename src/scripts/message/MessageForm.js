@@ -82,6 +82,6 @@ export const MessageForm = () => {
   if (getDisplayMessageForm()) {
     return html;
   } else {
-    return;
+    return "";
   }
 };

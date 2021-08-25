@@ -186,6 +186,27 @@
       "text": "Love your stuff man",
       "read": true,
       "id": 8
+    },
+    {
+      "userId": 6,
+      "recipientId": 5,
+      "text": "sick air bubble ring dude",
+      "read": false,
+      "id": 9
+    },
+    {
+      "userId": 6,
+      "recipientId": 5,
+      "text": "ey bwai",
+      "read": false,
+      "id": 10
+    },
+    {
+      "userId": 6,
+      "recipientId": 1,
+      "text": "ey gurl",
+      "read": false,
+      "id": 11
     }
   ],
   "follows": [
@@ -198,6 +219,11 @@
       "id": 2,
       "userId": 3,
       "followingId": 2
+    },
+    {
+      "followingId": 5,
+      "userId": 6,
+      "id": 3
     }
   ]
 }
